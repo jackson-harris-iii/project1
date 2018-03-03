@@ -10,9 +10,15 @@ firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 var player;
 var randomVideo = ["motivation", "inspiration", "success"];
 
+//be able to add items from the random video array and query one of them
 for (var i=0; i<randomVideo.length; i++) {
 	//grab video id based on this randomVideo name
-
+	var apiRequest = buildApiRequest('GET',
+        '/youtube/v3/search',
+        {'maxResults': '25',
+         'part': 'snippet',
+         'q': randomVideo,
+         'type': ''});
 };
 
 function onYouTubeIframeAPIReady() {
