@@ -13,14 +13,16 @@ function displaySelectedTopic() {
 	$('#individualTopic').show()
 
 	//YouTube API
-	var youTubeQuery = "https://www.googleapis.com/youtube/v3/videos?&key=AIzaSyBhzdPv4V5fpngnYlWdq4cYnLpj-gZV2Zo"
-	var randomVideo = ["motivation", "inspiration", "success"];
+	var youTubeQuery = "https://www.googleapis.com/youtube/v3/videos?&key=AIzaSyBhzdPv4V5fpngnYlWdq4cYnLpj-gZV2Zo&part=player"
+	// var randomVideo = ["motivation", "inspiration", "success"];
 
 	$.ajax({
-		url: youTubeQuery,
+		url: youTubeQuery + "&id=hKoYeR0dvkU",
 		method: 'GET'
 	}).then(function(response) {
 		console.log(response);
+
+		$(".youtubeDIV").html("<iframe max-width='480' max-height='270' src='https://www.youtube.com/embed/" + response.items["0"].id + "' frameborder='0'></iframe>")
 	});
 
 	//This will the area that calls the quote API
