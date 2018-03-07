@@ -1,90 +1,50 @@
 $(document).ready(function () {
 
-	// YouTube API
-	var tag = document.createElement('script');
+function displaySelectedTopic() {
+	//sets the selected topic variable to the unique id we can use to grab data to populate the topic display page.
+	//similar to your question objects having that unique question identifier.
+	selectedTopic = this.id
+	console.log(selectedTopic)
 
-	tag.src = "https://www.youtube.com/iframe_api";
-	var firstScriptTag = document.getElementsByTagName('script')[0];
-	firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+	//hide other topic buttons
+	$('#allTopics').hide()
 
-	var player;
+	//shows selected topic data area
+	$('#individualTopic').show()
+
+	//YouTube API
+	var youTubeQuery = "https://www.googleapis.com/youtube/v3/videos?&key=AIzaSyBhzdPv4V5fpngnYlWdq4cYnLpj-gZV2Zo"
 	var randomVideo = ["motivation", "inspiration", "success"];
 
-	// //be able to add items from the random video array and query one of them
-	// for (var i=0; i<randomVideo.length; i++) {
-	// 	//grab video id based on this randomVideo name
-	// 	var apiRequest = buildApiRequest('GET',
-	//         '/youtube/v3/search',
-	//         {'maxResults': '25',
-	//          'part': 'snippet',
-	//          'q': randomVideo,
-	//          'type': ''});
-	// };
+	$.ajax({
+		url: youTubeQuery,
+		method: 'GET'
+	}).then(function(response) {
+		console.log(response);
+	});
 
-	function onYouTubeIframeAPIReady() {
+	//This will the area that calls the quote API
+	var queryURL = 'http://quotes.rest/qod.json?category=management'
+	$.ajax({
+		url: queryURL,
+		method: 'GET',
+	}).then(function (response) {
+		console.log(response)
 
-		player = new YT.Player('player', {
-			height: '390',
-			width: '640',
-			listProperty: search,
-			list: randomVideo,
-			events: {
-				'onReady': onPlayerReady,
-				'onStateChange': onPlayerStateChange
-			}
-		});
-	}
+		//create variables that contain the data we want to add to the page.
+		var quote = response.contents.quotes["0"].quote
+		var author = response.contents.quotes["0"].author
+		console.log(author)
 
-	// They Said So API
+		//Adds the quote to the page
+		$('.quoteDIV').text(quote)
+	});
 
-
-	// Variables
-
-	// Functions
-	function displaySelectedTopic() {
-		//sets the selected topic variable to the unique id we can use to grab data to populate the topic display page.
-		//similar to your question objects having that unique question identifier.
-		selectedTopic = this.id
-		console.log(selectedTopic)
-
-		//hide other topic buttons
-		$('#allTopics').hide()
-
-		//shows selected topic data area
-		$('#individualTopic').show()
-
-
-
-		//This will be the area that calls the youTube API (or invokes the function that does so)
-
-
-
-		//This will the area that calls the quote API
-		var queryURL = 'http://quotes.rest/qod.json?category=management'
-		$.ajax({
-			url: queryURL,
-			method: 'GET',
-		}).then(function (response) {
-			console.log(response)
-
-			//create variables that contain the data we want to add to the page.
-			var quote = response.contents.quotes["0"].quote
-			var author = response.contents.quotes["0"].author
-			console.log(author)
-
-			//Adds the quote to the page
-			$('.quoteDIV').text(quote)
-
-
-		});
-
-		// "supposed" to show a task has been completed...falling asleep will fix in the AM`
-		// $('.completeBtn').click( function () {
-		// 	var selectedTopicDIV = $('#selectedTopic').attr('class', 'text-green').text('COMPLETE')
-		// 	console.log(selectedTopicDIV)
-		// })
-
-		
+	// "supposed" to show a task has been completed...falling asleep will fix in the AM`
+	// $('.completeBtn').click( function () {
+	// 	var selectedTopicDIV = $('#selectedTopic').attr('class', 'text-green').text('COMPLETE')
+	// 	console.log(selectedTopicDIV)
+	// })
 	
 }
 
