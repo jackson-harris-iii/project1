@@ -82,9 +82,7 @@ $(document).ready(function () {
 		// $('.completeBtn').click( function () {
 		// 	var selectedTopicDIV = $('#selectedTopic').attr('class', 'text-green').text('COMPLETE')
 		// 	console.log(selectedTopicDIV)
-
-
-	})
+		// })
 
 		
 	
