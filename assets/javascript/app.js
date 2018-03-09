@@ -127,8 +127,8 @@ var topicsObject = {
 $("#individualTopic").addClass("hide");
 
 //when a user clicks on a specific card button, the youtube div will appear with the relevant information
-$(".topicButton").on("click", function(event){
-
+$("body").on("click", ".topicButton", function(event){
+	console.log("this is working");
 	//prevent button submit
 	event.preventDefault();
 
@@ -136,8 +136,8 @@ $(".topicButton").on("click", function(event){
 	$("#individualTopic").removeClass("hide");
 
 	//grab the id of the current button and tie it in so as to grab the relevant content
-	presentTopic = this.id;
-	console.log(id);
+	// presentTopic = this.id;
+	// console.log(id);
 	//run function to populate API information
 	// displaySelectedTopic();
 });
