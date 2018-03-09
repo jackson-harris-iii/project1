@@ -1,0 +1,64 @@
+.masthead{
+	background: url("http://www.wallpapermania.eu/images/lthumbs/2013-02/4390_Sunrise-over-the-sea-relaxing-time.jpg") no-repeat bottom center scroll;
+	background-size: cover;
+
+}
+
+.brand-heading{
+	color: white;
+	font-style: italic;
+	text-shadow:
+		-2px -2px 0 black,
+		2px -2px 0 black,
+		-2px 2px 0 black,
+		2px 2px 0 black;
+}
+
+#about{
+	background-color: #001a33;
+}
+
+#team{
+	font-size: 45px;
+	color: white;
+	text-shadow:
+		-2px -2px 0 black,
+		2px -2px 0 black,
+		-2px 2px 0 black,
+		2px 2px 0 black;
+}
+
+#download{
+	background: url("https://2.bp.blogspot.com/-LSLWgf6MsoY/UgeAV35uxLI/AAAAAAAAXsg/kaDag_dtys4/s1600/Photography+Wallpapers+for+Desktop+%25285%2529.jpg") no-repeat bottom center scroll;
+}
+
+#contact{
+	background-color:  #001a33;
+
+}
+
+#Subscribe{
+	font-size: 60px;
+	text-shadow:
+		-2px -2px 0 black,
+		2px -2px 0 black,
+		-2px 2px 0 black,
+		2px 2px 0 black;
+}
+
+#Copyright{
+	font-size: 30px;
+}
+
+.network-name{
+	color: white;
+}
+
+.navbar{
+	font-size: 20px;
+	text-shadow:
+		-1px -1px 0 black,
+		1px -1px 0 black,
+		-1px 1px 0 black,
+		1px 1px 0 black;
+}
