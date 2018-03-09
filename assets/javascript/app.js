@@ -121,7 +121,6 @@ var topicsObject = {
 		challenge : "Think of one of the most intimidating and plausible ways in which you can get rejected, whether it's applying to your dream job or asking someone out. Do it and live in the moment. Know that you are not in control of the outcome, but you control your reaction.",
 		complete : false
 	}
-};
 }
 
 function displaySelectedTopic() {
@@ -189,8 +188,55 @@ $('#individualTopic').hide()
 
 // dynamically populate the cards on the topics page
 $("#dropdown #changeDropdown").on("click", function(){
-	$("#allTopics .row").empty();
-	$("#allTopics .row").append("<div class='col-md-3'><div class='card card-cascade narrower'><div class='view overlay'><img src='# class='img-fluid'><a><div class='mask rgba-white-slight'></div></a></div><div class='card-body'><h5 class='pink-text'><i class='fa fa-cutlery'></i>Change1</h5><h4 class='card-title'>1</h4><p class='card-text'>Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi.</p><a class='btn btn-unique topicButton' id='change1'>Button</a></div></div>");
+
+	$("#allTopics #topicsRow").empty();
+	var idChange = ["change1", "change2", "change3", "change4", "change5"];
+	var titleChange = ["Fear of Change 1", "Fear of Change 2", "Fear of Change 3", "Fear of Change 4", "Fear of Change 5"];
+
+	for (var i=0; i < idChange.length; i++) {
+
+		$("#allTopics #topicsRow").append("<div class='col-md-3'><div class='card card-cascade narrower'><div class='view overlay'><img src='#' class='img-fluid'><a><div class='mask rgba-white-slight'></div></a></div><div class='card-body'><h5 class='pink-text'><i class='fa fa-cutlery'></i>" + titleChange[i] + "</h5><h4 class='card-title'>1</h4><p class='card-text'>Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi.</p><a class='btn btn-unique topicButton' id=" + idChange[i] + ">Button</a></div></div>");
+
+	}
+});
+
+$("#dropdown #embarrDropdown").on("click", function(){
+
+	$("#allTopics #topicsRow").empty();
+	var idChange = ["embarr1", "embarr2", "embarr3", "embarr4", "embarr5"];
+	var titleChange = ["Fear of Embarrasement 1", "Fear of Embarrasement 2", "Fear of Embarrasement 3", "Fear of Embarrasement 4", "Fear of Embarrasement 5"];
+
+	for (var i=0; i < idChange.length; i++) {
+
+		$("#allTopics #topicsRow").append("<div class='col-md-3'><div class='card card-cascade narrower'><div class='view overlay'><img src='#' class='img-fluid'><a><div class='mask rgba-white-slight'></div></a></div><div class='card-body'><h5 class='pink-text'><i class='fa fa-cutlery'></i>" + titleChange[i] + "</h5><h4 class='card-title'>1</h4><p class='card-text'>Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi.</p><a class='btn btn-unique topicButton' id=" + idChange[i] + ">Button</a></div></div>");
+
+	}
+});
+
+$("#dropdown #failDropdown").on("click", function(){
+
+	$("#allTopics #topicsRow").empty();
+	var idChange = ["fail1", "fail2", "fail3", "fail4", "fail5"];
+	var titleChange = ["Fear of Fail 1", "Fear of Fail 2", "Fear of Fail 3", "Fear of Fail 4", "Fear of Fail 5"];
+
+	for (var i=0; i < idChange.length; i++) {
+
+		$("#allTopics #topicsRow").append("<div class='col-md-3'><div class='card card-cascade narrower'><div class='view overlay'><img src='#' class='img-fluid'><a><div class='mask rgba-white-slight'></div></a></div><div class='card-body'><h5 class='pink-text'><i class='fa fa-cutlery'></i>" + titleChange[i] + "</h5><h4 class='card-title'>1</h4><p class='card-text'>Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi.</p><a class='btn btn-unique topicButton' id=" + idChange[i] + ">Button</a></div></div>");
+
+	}
+});
+
+$("#dropdown #rejectDropdown").on("click", function(){
+
+	$("#allTopics #topicsRow").empty();
+	var idChange = ["reject1", "reject2", "reject3", "reject4", "reject5"];
+	var titleChange = ["Fear of Rejection 1", "Fear of Rejection 2", "Fear of Rejection 3", "Fear of Rejection 4", "Fear of Rejection 5"];
+
+	for (var i=0; i < idChange.length; i++) {
+
+		$("#allTopics #topicsRow").append("<div class='col-md-3'><div class='card card-cascade narrower'><div class='view overlay'><img src='#' class='img-fluid'><a><div class='mask rgba-white-slight'></div></a></div><div class='card-body'><h5 class='pink-text'><i class='fa fa-cutlery'></i>" + titleChange[i] + "</h5><h4 class='card-title'>1</h4><p class='card-text'>Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi.</p><a class='btn btn-unique topicButton' id=" + idChange[i] + ">Button</a></div></div>");
+
+	}
 });
 
 });
