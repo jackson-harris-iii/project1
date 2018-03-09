@@ -129,25 +129,26 @@ $("#individualTopic").addClass("hide");
 //when a user clicks on a specific card button, the youtube div will appear with the relevant information
 $("body").on("click", ".topicButton", function(event){
 	console.log("this is working");
+
 	//prevent button submit
 	event.preventDefault();
 
 	//show youtube and quote div
 	$("#individualTopic").removeClass("hide");
 
-	//grab the id of the current button and tie it in so as to grab the relevant content
-	// presentTopic = this.id;
-	// console.log(id);
+	var selectedTopic = $(this).attr("id");
+	console.log(selectedTopic);
+
 	//run function to populate API information
-	// displaySelectedTopic();
+	displaySelectedTopic(selectedTopic);
 });
 
-function displaySelectedTopic() {
+function displaySelectedTopic(selectedTopic) {
 
 	//YouTube API
 	var youTubeQuery = "https://www.googleapis.com/youtube/v3/videos?&key=AIzaSyBhzdPv4V5fpngnYlWdq4cYnLpj-gZV2Zo&part=player&id="
 
-	var currentYTTopic = 'topicsObject.'+ selectedTopic +'.youtubeID';
+	var currentYTTopic = topicsObject[selectedTopic].youtubeID;
 
 	$.ajax({
 		url: youTubeQuery + currentYTTopic,
@@ -174,6 +175,10 @@ function displaySelectedTopic() {
 		//Adds the quote to the page
 		$('.quoteDIV').text(quote)
 	});
+
+	var challenge = topicsObject[selectedTopic].challenge;
+
+	$(".challengeDIV").text(challenge);
 
 	// "supposed" to show a task has been completed...falling asleep will fix in the AM`
 	// $('.completeBtn').click( function () {
