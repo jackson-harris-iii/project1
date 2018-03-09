@@ -124,7 +124,6 @@ var topicsObject = {
 };
 }
 
-
 function displaySelectedTopic() {
 	//sets the selected topic variable to the unique id we can use to grab data to populate the topic display page.
 	//similar to your question objects having that unique question identifier.
