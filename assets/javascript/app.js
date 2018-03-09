@@ -130,7 +130,8 @@ function displaySelectedTopic() {
 	//similar to your question objects having that unique question identifier.
 	selectedTopic = this.id
 	console.log(selectedTopic)
-	console.log('topicsObject.'+ selectedTopic +'.youtubeID')
+
+	var currentYTTopic = 'topicsObject.'+ selectedTopic +'.youtubeID';
 
 	//hide other topic buttons
 	$('#allTopics').hide()
@@ -139,12 +140,10 @@ function displaySelectedTopic() {
 	$('#individualTopic').show()
 
 	//YouTube API
-	//Nelly suggested making this a separate function and passing through an argument
-	var youTubeQuery = "https://www.googleapis.com/youtube/v3/videos?&key=AIzaSyBhzdPv4V5fpngnYlWdq4cYnLpj-gZV2Zo&part=player"
-	// var randomVideo = ["motivation", "inspiration", "success"];
+	var youTubeQuery = "https://www.googleapis.com/youtube/v3/videos?&key=AIzaSyBhzdPv4V5fpngnYlWdq4cYnLpj-gZV2Zo&part=player&id="
 
 	$.ajax({
-		url: youTubeQuery + "&id=hKoYeR0dvkU",
+		url: youTubeQuery + currentYTTopic,
 		method: 'GET'
 	}).then(function(response) {
 		console.log(response);
