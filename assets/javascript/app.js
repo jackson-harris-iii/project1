@@ -123,12 +123,13 @@ var topicsObject = {
 	}
 }
 
+//show and hide youtube and quote information from the page
+$("#individualTopic").attr("style", "display: none !important");
 
+//when a user clicks on a specific card, the youtube div will appear with the relevant information
 $(".topicButton").on("click", function(event){
 
 	event.preventDefault();
-
-	$("html, body").animate({ scrollTop: $("#individualTopic").offset().top }, 1000);
 
 	presentTopic = this.id;
 	displaySelectedTopic();
