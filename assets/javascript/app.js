@@ -123,16 +123,23 @@ var topicsObject = {
 	}
 }
 
-//show and hide youtube and quote information from the page
-$("#individualTopic").attr("style", "display: none !important");
+//hide youtube and quote div
+$("#individualTopic").addClass("hide");
 
-//when a user clicks on a specific card, the youtube div will appear with the relevant information
+//when a user clicks on a specific card button, the youtube div will appear with the relevant information
 $(".topicButton").on("click", function(event){
 
+	//prevent button submit
 	event.preventDefault();
 
+	//show youtube and quote div
+	$("#individualTopic").removeClass("hide");
+
+	//grab the id of the current button and tie it in so as to grab the relevant content
 	presentTopic = this.id;
-	displaySelectedTopic();
+	console.log(id);
+	//run function to populate API information
+	// displaySelectedTopic();
 });
 
 function displaySelectedTopic() {
