@@ -123,17 +123,18 @@ var topicsObject = {
 	}
 }
 
+
+$(".topicButton").on("click", function(event){
+
+	event.preventDefault();
+
+	$("html, body").animate({ scrollTop: $("#individualTopic").offset().top }, 1000);
+
+	presentTopic = this.id;
+	displaySelectedTopic();
+});
+
 function displaySelectedTopic() {
-	//sets the selected topic variable to the unique id we can use to grab data to populate the topic display page.
-	//similar to your question objects having that unique question identifier.
-	selectedTopic = this.id
-	console.log(selectedTopic)
-
-	//hide other topic buttons
-	$('#allTopics').hide()
-
-	//shows selected topic data area
-	$('#individualTopic').show()
 
 	//YouTube API
 	var youTubeQuery = "https://www.googleapis.com/youtube/v3/videos?&key=AIzaSyBhzdPv4V5fpngnYlWdq4cYnLpj-gZV2Zo&part=player&id="
@@ -149,7 +150,7 @@ function displaySelectedTopic() {
 		$(".youtubeDIV").html("<iframe max-width='480' max-height='270' src='https://www.youtube.com/embed/" + response.items["0"].id + "' frameborder='0'></iframe>")
 	});
 
-	//This will the area that calls the quote API
+	//quote API
 	var queryURL = 'http://quotes.rest/qod.json?category=management'
 	$.ajax({
 		url: queryURL,
@@ -174,18 +175,6 @@ function displaySelectedTopic() {
 	
 };
 
-//calls the function that changes the visibility of the topic buttons and displays the selected topic page.
-$('body').on('click', '.topicButton', displaySelectedTopic)
-
-//backbutton returns user to previus page hides individual topic div and shows all topic buttons
-$('body').on('click', '.backBtn', function () {
-	$('#individualTopic').hide()
-	$('#allTopics').show()
-})
-
-//hides individual topic div when the page loads
-$('#individualTopic').hide()
-
 // dynamically populate the cards on the topics page
 $("#dropdown #changeDropdown").on("click", function(){
 
@@ -198,6 +187,8 @@ $("#dropdown #changeDropdown").on("click", function(){
 		$("#allTopics #topicsRow").append("<div class='col-md-3'><div class='card card-cascade narrower'><div class='view overlay'><img src='#' class='img-fluid'><a><div class='mask rgba-white-slight'></div></a></div><div class='card-body'><h5 class='pink-text'><i class='fa fa-cutlery'></i>" + titleChange[i] + "</h5><h4 class='card-title'>1</h4><p class='card-text'>Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi.</p><a class='btn btn-unique topicButton' id=" + idChange[i] + ">Button</a></div></div>");
 
 	}
+
+	$("#allTopics #topicsRow").append("<div class='col-md-12'><div class='progress'><div class='progress-bar progress-bar-striped progress-bar-animated' role='progressbar' aria-valuenow='75' aria-valuemin='0' aria-valuemax='100' style='width: 25%; margin-top: 20px;'></div></div></div>");
 });
 
 $("#dropdown #embarrDropdown").on("click", function(){
@@ -211,6 +202,8 @@ $("#dropdown #embarrDropdown").on("click", function(){
 		$("#allTopics #topicsRow").append("<div class='col-md-3'><div class='card card-cascade narrower'><div class='view overlay'><img src='#' class='img-fluid'><a><div class='mask rgba-white-slight'></div></a></div><div class='card-body'><h5 class='pink-text'><i class='fa fa-cutlery'></i>" + titleChange[i] + "</h5><h4 class='card-title'>1</h4><p class='card-text'>Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi.</p><a class='btn btn-unique topicButton' id=" + idChange[i] + ">Button</a></div></div>");
 
 	}
+
+	$("#allTopics #topicsRow").append("<div class='col-md-12'><div class='progress'><div class='progress-bar progress-bar-striped progress-bar-animated' role='progressbar' aria-valuenow='75' aria-valuemin='0' aria-valuemax='100' style='width: 25%; margin-top: 20px;'></div></div></div>");
 });
 
 $("#dropdown #failDropdown").on("click", function(){
@@ -224,6 +217,7 @@ $("#dropdown #failDropdown").on("click", function(){
 		$("#allTopics #topicsRow").append("<div class='col-md-3'><div class='card card-cascade narrower'><div class='view overlay'><img src='#' class='img-fluid'><a><div class='mask rgba-white-slight'></div></a></div><div class='card-body'><h5 class='pink-text'><i class='fa fa-cutlery'></i>" + titleChange[i] + "</h5><h4 class='card-title'>1</h4><p class='card-text'>Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi.</p><a class='btn btn-unique topicButton' id=" + idChange[i] + ">Button</a></div></div>");
 
 	}
+	$("#allTopics #topicsRow").append("<div class='col-md-12'><div class='progress'><div class='progress-bar progress-bar-striped progress-bar-animated' role='progressbar' aria-valuenow='75' aria-valuemin='0' aria-valuemax='100' style='width: 25%; margin-top: 20px;'></div></div></div>");
 });
 
 $("#dropdown #rejectDropdown").on("click", function(){
@@ -237,6 +231,7 @@ $("#dropdown #rejectDropdown").on("click", function(){
 		$("#allTopics #topicsRow").append("<div class='col-md-3'><div class='card card-cascade narrower'><div class='view overlay'><img src='#' class='img-fluid'><a><div class='mask rgba-white-slight'></div></a></div><div class='card-body'><h5 class='pink-text'><i class='fa fa-cutlery'></i>" + titleChange[i] + "</h5><h4 class='card-title'>1</h4><p class='card-text'>Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi.</p><a class='btn btn-unique topicButton' id=" + idChange[i] + ">Button</a></div></div>");
 
 	}
+	$("#allTopics #topicsRow").append("<div class='col-md-12'><div class='progress'><div class='progress-bar progress-bar-striped progress-bar-animated' role='progressbar' aria-valuenow='75' aria-valuemin='0' aria-valuemax='100' style='width: 25%; margin-top: 20px;'></div></div></div>");
 });
 
 });
