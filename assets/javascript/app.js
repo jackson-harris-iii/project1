@@ -172,13 +172,10 @@ function displaySelectedTopic(selectedTopic) {
 		url: queryURL + currentQuoteTopic,
 		method: 'GET',
 	}).then(function (response) {
-		console.log(response)
 
 		//create variables that contain the data we want to add to the page.
 		var quote = response.contents.quote;
 		var author = response.contents.author;
-		console.log(author);
-		console.log(quote);
 
 		if (author === null) {
 			author = "";
