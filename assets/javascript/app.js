@@ -3,37 +3,37 @@ $(document).ready(function () {
 var topicsObject = {
 	change1 : {
 		youtubeID : "GBz-pwTyxtA",
-		// quoteID : 
+		quoteID : "change",
 		challenge : "Go to the grocery store and buy a food you've never eaten. Prepare and try it at home.",
 		complete : false
 	},
 	change2 : {
 		youtubeID : "5iqqLLefHsc",
-		// quoteID : 
+		quoteID : "learning",
 		challenge : "Choose a new town or area of your town to explore. Don't overplan it. Instead, go and walk around. Embrace being in an unfamiliar environment.",
 		complete : false
 	},
 	change3 : {
 		youtubeID : "jpA41I_Jc_4",
-		// quoteID : 
+		quoteID : "inspire",
 		challenge : "Rearrange your living space. Get rid of clutter and open up the space to welcome new beginnings.",
 		complete : false
 	},
 	change4 : {
 		youtubeID : "267cB6tNeUc",
-		// quoteID : 
+		quoteID : "aspire",
 		challenge : "Enroll in a local class to learn something completely new.",
 		complete : false
 	},
 	change5 : {
 		youtubeID : "NK-WOZZ-PcI",
-		// quoteID : 
+		quoteID : "learning",
 		challenge : "Change a major component of your daily routine, whether it's where you get coffee, how you get to work, or something else. Get into the moment by being aware of the newness.",
 		complete : false
 	},
 	embarr1 : {
 		youtubeID : "RFjN_SM7ijc",
-		// quoteID : 
+		// quoteID : ""
 		challenge : "Engage totally with the first thing that comes to mind when it comes to embarrasement. Laugh at yourself.",
 		complete : false
 	},
@@ -162,20 +162,24 @@ function displaySelectedTopic(selectedTopic) {
 	});
 
 	//quote API
-	var queryURL = 'http://quotes.rest/qod.json?category=management'
+	var queryURL = "http://quotes.rest/quote/search.json?api_key=_fL6rv9zmtRHXacNHMTESweF&category=";
+
+	var currentQuoteTopic = topicsObject[selectedTopic].quoteID;
+
 	$.ajax({
-		url: queryURL,
+		url: queryURL + currentQuoteTopic,
 		method: 'GET',
 	}).then(function (response) {
 		console.log(response)
 
 		//create variables that contain the data we want to add to the page.
-		var quote = response.contents.quotes["0"].quote
-		var author = response.contents.quotes["0"].author
-		console.log(author)
+		var quote = response.contents.quote;
+		var author = response.contents.author;
+		console.log(author);
+		console.log(quote);
 
 		//Adds the quote to the page
-		$('.quoteDIV').text(quote)
+		$(".quoteDIV").html(quote + "<br>" + author)
 	});
 
 	var challenge = topicsObject[selectedTopic].challenge;
