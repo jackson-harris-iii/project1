@@ -126,6 +126,8 @@ var topicsObject = {
 //hide youtube and quote div
 $("#individualTopic").addClass("hide");
 
+$(".completeBtn").addClass("hide");
+
 //when a user clicks on a specific card button, the youtube div will appear with the relevant information
 $("body").on("click", ".topicButton", function(event){
 	console.log("this is working");
