@@ -121,24 +121,36 @@ var topicsObject = {
 		challenge : "Think of one of the most intimidating and plausible ways in which you can get rejected, whether it's applying to your dream job or asking someone out. Do it and live in the moment. Know that you are not in control of the outcome, but you control your reaction.",
 		complete : false
 	}
-};
+}
 
-function displaySelectedTopic() {
-	//sets the selected topic variable to the unique id we can use to grab data to populate the topic display page.
-	//similar to your question objects having that unique question identifier.
-	selectedTopic = this.id
-	console.log(selectedTopic)
+//hide youtube and quote div
+$("#individualTopic").addClass("hide");
 
-	var currentYTTopic = 'topicsObject.'+ selectedTopic +'.youtubeID';
+$(".completeBtn").addClass("hide");
 
-	//hide other topic buttons
-	$('#allTopics').hide()
+//when a user clicks on a specific card button, the youtube div will appear with the relevant information
+$("body").on("click", ".topicButton", function(event){
+	console.log("this is working");
 
-	//shows selected topic data area
-	$('#individualTopic').show()
+	//prevent button submit
+	event.preventDefault();
+
+	//show youtube and quote div
+	$("#individualTopic").removeClass("hide");
+
+	var selectedTopic = $(this).attr("id");
+	console.log(selectedTopic);
+
+	//run function to populate API information
+	displaySelectedTopic(selectedTopic);
+});
+
+function displaySelectedTopic(selectedTopic) {
 
 	//YouTube API
 	var youTubeQuery = "https://www.googleapis.com/youtube/v3/videos?&key=AIzaSyBhzdPv4V5fpngnYlWdq4cYnLpj-gZV2Zo&part=player&id="
+
+	var currentYTTopic = topicsObject[selectedTopic].youtubeID;
 
 	$.ajax({
 		url: youTubeQuery + currentYTTopic,
@@ -149,7 +161,7 @@ function displaySelectedTopic() {
 		$(".youtubeDIV").html("<iframe max-width='480' max-height='270' src='https://www.youtube.com/embed/" + response.items["0"].id + "' frameborder='0'></iframe>")
 	});
 
-	//This will the area that calls the quote API
+	//quote API
 	var queryURL = 'http://quotes.rest/qod.json?category=management'
 	$.ajax({
 		url: queryURL,
@@ -166,6 +178,10 @@ function displaySelectedTopic() {
 		$('.quoteDIV').text(quote)
 	});
 
+	var challenge = topicsObject[selectedTopic].challenge;
+
+	$(".challengeDIV").text(challenge);
+
 	// "supposed" to show a task has been completed...falling asleep will fix in the AM`
 	// $('.completeBtn').click( function () {
 	// 	var selectedTopicDIV = $('#selectedTopic').attr('class', 'text-green').text('COMPLETE')
@@ -174,17 +190,63 @@ function displaySelectedTopic() {
 	
 };
 
-//calls the function that changes the visibility of the topic buttons and displays the selected topic page.
-$('body').on('click', '.topicButton', displaySelectedTopic)
+// dynamically populate the cards on the topics page
+$("#dropdown #changeDropdown").on("click", function(){
 
-//backbutton returns user to previus page hides individual topic div and shows all topic buttons
-$('body').on('click', '.backBtn', function () {
-	$('#individualTopic').hide()
-	$('#allTopics').show()
-})
+	$("#allTopics #topicsRow").empty();
+	var idChange = ["change1", "change2", "change3", "change4", "change5"];
+	var titleChange = ["Fear of Change 1", "Fear of Change 2", "Fear of Change 3", "Fear of Change 4", "Fear of Change 5"];
 
-//hides individual topic div when the page loads
-$('#individualTopic').hide()
+	for (var i=0; i < idChange.length; i++) {
 
+		$("#allTopics #topicsRow").append("<div class='col-md-3'><div class='card card-cascade narrower'><div class='view overlay'><img src='#' class='img-fluid'><a><div class='mask rgba-white-slight'></div></a></div><div class='card-body'><h5 class='pink-text'><i class='fa fa-cutlery'></i>" + titleChange[i] + "</h5><h4 class='card-title'>1</h4><p class='card-text'>Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi.</p><a class='btn btn-unique topicButton' id=" + idChange[i] + ">Button</a></div></div>");
+
+	}
+
+	$("#allTopics #topicsRow").append("<div class='col-md-12'><div class='progress'><div class='progress-bar progress-bar-striped progress-bar-animated' role='progressbar' aria-valuenow='75' aria-valuemin='0' aria-valuemax='100' style='width: 25%; margin-top: 20px;'></div></div></div>");
+});
+
+$("#dropdown #embarrDropdown").on("click", function(){
+
+	$("#allTopics #topicsRow").empty();
+	var idChange = ["embarr1", "embarr2", "embarr3", "embarr4", "embarr5"];
+	var titleChange = ["Fear of Embarrasement 1", "Fear of Embarrasement 2", "Fear of Embarrasement 3", "Fear of Embarrasement 4", "Fear of Embarrasement 5"];
+
+	for (var i=0; i < idChange.length; i++) {
+
+		$("#allTopics #topicsRow").append("<div class='col-md-3'><div class='card card-cascade narrower'><div class='view overlay'><img src='#' class='img-fluid'><a><div class='mask rgba-white-slight'></div></a></div><div class='card-body'><h5 class='pink-text'><i class='fa fa-cutlery'></i>" + titleChange[i] + "</h5><h4 class='card-title'>1</h4><p class='card-text'>Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi.</p><a class='btn btn-unique topicButton' id=" + idChange[i] + ">Button</a></div></div>");
+
+	}
+
+	$("#allTopics #topicsRow").append("<div class='col-md-12'><div class='progress'><div class='progress-bar progress-bar-striped progress-bar-animated' role='progressbar' aria-valuenow='75' aria-valuemin='0' aria-valuemax='100' style='width: 25%; margin-top: 20px;'></div></div></div>");
+});
+
+$("#dropdown #failDropdown").on("click", function(){
+
+	$("#allTopics #topicsRow").empty();
+	var idChange = ["fail1", "fail2", "fail3", "fail4", "fail5"];
+	var titleChange = ["Fear of Fail 1", "Fear of Fail 2", "Fear of Fail 3", "Fear of Fail 4", "Fear of Fail 5"];
+
+	for (var i=0; i < idChange.length; i++) {
+
+		$("#allTopics #topicsRow").append("<div class='col-md-3'><div class='card card-cascade narrower'><div class='view overlay'><img src='#' class='img-fluid'><a><div class='mask rgba-white-slight'></div></a></div><div class='card-body'><h5 class='pink-text'><i class='fa fa-cutlery'></i>" + titleChange[i] + "</h5><h4 class='card-title'>1</h4><p class='card-text'>Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi.</p><a class='btn btn-unique topicButton' id=" + idChange[i] + ">Button</a></div></div>");
+
+	}
+	$("#allTopics #topicsRow").append("<div class='col-md-12'><div class='progress'><div class='progress-bar progress-bar-striped progress-bar-animated' role='progressbar' aria-valuenow='75' aria-valuemin='0' aria-valuemax='100' style='width: 25%; margin-top: 20px;'></div></div></div>");
+});
+
+$("#dropdown #rejectDropdown").on("click", function(){
+
+	$("#allTopics #topicsRow").empty();
+	var idChange = ["reject1", "reject2", "reject3", "reject4", "reject5"];
+	var titleChange = ["Fear of Rejection 1", "Fear of Rejection 2", "Fear of Rejection 3", "Fear of Rejection 4", "Fear of Rejection 5"];
+
+	for (var i=0; i < idChange.length; i++) {
+
+		$("#allTopics #topicsRow").append("<div class='col-md-3'><div class='card card-cascade narrower'><div class='view overlay'><img src='#' class='img-fluid'><a><div class='mask rgba-white-slight'></div></a></div><div class='card-body'><h5 class='pink-text'><i class='fa fa-cutlery'></i>" + titleChange[i] + "</h5><h4 class='card-title'>1</h4><p class='card-text'>Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi.</p><a class='btn btn-unique topicButton' id=" + idChange[i] + ">Button</a></div></div>");
+
+	}
+	$("#allTopics #topicsRow").append("<div class='col-md-12'><div class='progress'><div class='progress-bar progress-bar-striped progress-bar-animated' role='progressbar' aria-valuenow='75' aria-valuemin='0' aria-valuemax='100' style='width: 25%; margin-top: 20px;'></div></div></div>");
+});
 
 });
