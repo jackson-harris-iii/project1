@@ -123,6 +123,12 @@ var topicsObject = {
 	}
 }
 
+//iterate through object to check if marked complete
+//if complete, change opacity of card and add 20% to corresponding progress bar
+if (topicsObject.[i].complete === true) {
+	// $(selectedTopic).addClass("opacity"); if using selectedTopic, make variable a global variable
+}
+
 //hide youtube and quote div
 $("#individualTopic").addClass("hide");
 
@@ -132,7 +138,6 @@ $(".completeBtn").on("click", function(){
 
 //when a user clicks on a specific card button, the youtube div will appear with the relevant information
 $("body").on("click", ".topicButton", function(event){
-	console.log("this is working");
 
 	//prevent button submit
 	event.preventDefault();
@@ -141,10 +146,10 @@ $("body").on("click", ".topicButton", function(event){
 	$("#individualTopic").removeClass("hide");
 
 	var selectedTopic = $(this).attr("id");
-	console.log(selectedTopic);
 
 	//run function to populate API information
 	displaySelectedTopic(selectedTopic);
+
 });
 
 function displaySelectedTopic(selectedTopic) {
@@ -158,7 +163,6 @@ function displaySelectedTopic(selectedTopic) {
 		url: youTubeQuery + currentYTTopic,
 		method: 'GET'
 	}).then(function(response) {
-		console.log(response);
 
 		$(".youtubeDIV").html("<iframe max-width='480' max-height='270' src='https://www.youtube.com/embed/" + response.items["0"].id + "' frameborder='0'></iframe>")
 	});
@@ -188,12 +192,6 @@ function displaySelectedTopic(selectedTopic) {
 	var challenge = topicsObject[selectedTopic].challenge;
 
 	$(".challengeDIV").text(challenge);
-
-	// "supposed" to show a task has been completed...falling asleep will fix in the AM`
-	// $('.completeBtn').click( function () {
-	// 	var selectedTopicDIV = $('#selectedTopic').attr('class', 'text-green').text('COMPLETE')
-	// 	console.log(selectedTopicDIV)
-	// })
 	
 };
 
