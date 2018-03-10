@@ -17,13 +17,21 @@
     <link href="css/grayscale.min.css" rel="stylesheet">
     <link rel="stylesheet" href="mystyles.css">
 
+     <!-- Font Awesome -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+      <!-- Bootstrap core CSS -->
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+      <!-- Material Design Bootstrap -->
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.0/css/mdb.min.css" rel="stylesheet">
+
+
   </head>
 
   <body id="page-top">
 
     <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
       <div class="container">
-        <a class="navbar-brand js-scroll-trigger" href="#page-top">Become A Better You</a>
+        <a class="navbar-brand js-scroll-trigger fonts" href="#page-top" style="color: #ffc107;">Become A Better You</a>
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           Menu
           <i class="fa fa-bars"></i>
@@ -31,13 +39,13 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#about">About</a>
+              <a class="nav-link js-scroll-trigger fonts" href="#about" style="color: #ffc107;">About</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#download">Subscribe</a>
+              <a class="nav-link js-scroll-trigger fonts" href="#download" style="color: #ffc107;">Subscribe</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
+              <a class="nav-link js-scroll-trigger fonts" href="#contact" style="color: #ffc107;">Contact</a>
             </li>
           </ul>
         </div>
@@ -49,44 +57,170 @@
         <div class="container">
           <div class="row">
             <div class="col-lg-8 mx-auto">
-              <h1 class="brand-heading">Level UP</h1>
-              <p class="intro-text"></p>
+              <p class="fonts" style="margin-top: 50%; font-size: 30px;">Happiness, Health, Confidence, Courage, Progress, Fearless</p>
+              <!-- <p class="fonts" style="margin-top: 280px; ">Consider Level UP a place to challenge yourself. A thought process that takes aspects of your life and expands on them or betters them. Face your fears, challenge your insecurities, erase certain doubt and become more confident to try new things. Simply gainging a boost to be a better you.</p> -->
+              
             </div>
           </div>
         </div>
       </div>
     </header>
 
-    <section id="about" class="content-section text-center">
+    <section id="about" class="text-center">
       <div class="container">
         <div class="row">
-          <div class="col-lg-8 mx-auto">
-            <h2 id="team">About Level UP</h2>
-            <p>Happiness, Health, Confidence, Courage, Progress, Fearless</p>
-            <p>Consider Level UP a place to challenge yourself. A thought process that takes aspects of your life and expands on them or betters them. Face your fears, challenge your insecurities, erase certain doubt and become more confident to try new things. Simply gainging a boost to be a better you.</p>
+          <div class="col-lg-12 mx-auto">
+            <h2 id="team" style="margin-top: 0px; font-size: 64px;" class="fonts">Level up your life</h2>
+                <div class="row" style="margin-top: 20px;">
+
+                    <div class="col-lg-1">
+                    <i class="fa fa-line-chart fa-5x amber-text" aria-hidden="true" style="float: left;"></i>
+                    </div>
+                    <div class="col-lg-5">
+                    <p style="float: left; margin-top: 30px; margin-left: 20px; color: white; font-size: 24px;" class="fonts">Track your progress with our interactive application</p>
+                    </div>
+                    <div class="col-lg-1">
+                    <i class="fa fa-check-square-o fa-5x amber-text" aria-hidden="true" style="float: left;"></i>
+                  </div>
+                    <div class="col-lg-5">
+                    <p style="float: left; margin-top: 30px; margin-left: 20px; color: white; font-size: 24px;" class="fonts">Check off your accomplishments as you conquerer new and exciting things</p>
+                  </div>
+                </div>      
+
+                <div class="row" style="margin-top: 80px;">
+                  <div class="col-lg-1">
+                    <i class="fa fa-bolt fa-5x amber-text" aria-hidden="true" style="float: left;"></i>
+                  </div>
+                  <div class="col-lg-5">
+                    <p style="float: left; margin-top: 30px; margin-left: 20px; color: white; font-size: 24px;" class="fonts">Challenge yourself to better yourself</p>
+                  </div>
+                  <div class="col-lg-1">
+                  <i class="fa fa-long-arrow-up fa-5x amber-text" aria-hidden="true" style="float: left;"></i>
+                  </div>
+                  <div class="col-lg-5">
+                  <p style="float: left; margin-top: 30px; margin-left: 20px; color: white; font-size: 24px;" class="fonts">Level up! Gain a new level for every challenge completed!</p>
+                  </div>
+                  </div>
+                </div>
+          </div>
            
           </div>
-        </div>
-      </div>
     </section>
+
   
     <section id="download" class="download-section content-section text-center">
       <div class="container">
         <div class="col-lg-8 mx-auto">
 
-          <h2 id="Subscribe">Subscribe</h2>
-          <button id="button"><a href="#" class="fa fa-facebook" style="color: blue;">-Login with Facebook</a></button>
-          
+          <h2 id="Subscribe" class="fonts" style="color: #ffc107;">It's Time To Get Started</h2>
+
+               <!--Modal: Login / Register Form-->
+                  <div class="modal fade" id="modalLRForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                      <div class="modal-dialog cascading-modal" role="document">
+                          <!--Content-->
+                          <div class="modal-content">
+
+                              <!--Modal cascading tabs-->
+                              <div class="modal-c-tabs">
+
+                                  <!-- Nav tabs -->
+                                  <ul class="nav nav-tabs tabs-2 white" role="tablist">
+                                      <li class="nav-item">
+                                          <a class="nav-link active fonts" data-toggle="tab" href="#panel7" role="tab"><i class="fa fa-user mr-1"></i> Login</a>
+                                      </li>
+                                      <li class="nav-item">
+                                          <a class="nav-link fonts" data-toggle="tab" href="#panel8" role="tab"><i class="fa fa-user-plus mr-1"></i> Register</a>
+                                      </li>
+                                  </ul>
+
+                                  <!-- Tab panels -->
+                                  <div class="tab-content">
+                                      <!--Panel 7-->
+                                      <div class="tab-pane fade in show active" id="panel7" role="tabpanel">
+
+                                          <!--Body-->
+                                          <div class="modal-body mb-1">
+                                              <div class="md-form form-sm mb-5">
+                                                  <input type="email" id="modalLRInput10" class="form-control form-control-sm validate">
+                                                  <label data-error="wrong" data-success="right" for="modalLRInput10" class=" fonts">Your email</label>
+                                              </div>
+
+                                              <div class="md-form form-sm mb-4">
+                                                  <input type="password" id="modalLRInput11" class="form-control form-control-sm validate">
+                                                  <label data-error="wrong" data-success="right" for="modalLRInput11" class="fonts">Your password</label>
+                                              </div>
+                                              <div class="text-center mt-2">
+                                                  <button class="btn btn-info fonts">Log in <i class="fa fa-sign-in ml-1"></i></button>
+                                              </div>
+                                          </div>
+                                          <!--Footer-->
+                                          <div class="modal-footer">
+                                              <div class="options text-center text-md-right mt-1">
+                                                  <p class="text-center fonts" style="margin-bottom: 10px;">Sign-in with Facebook
+                                                  <a href="#" class="blue-text"><i class="fa fa-facebook-square fa-2x" aria-hidden="true" style="margin-left: 15px;"></i></a></p>
+                                              </div>
+                                              <button type="button" class="btn btn-outline-info waves-effect ml-auto fonts" data-dismiss="modal">Close</button>
+                                          </div>
+
+                                      </div>
+                                      <!--/.Panel 7-->
+
+                                      <!--Panel 8-->
+                                      <div class="tab-pane fade" id="panel8" role="tabpane2">
+
+                                          <!--Body-->
+                                          <div class="modal-body">
+                                              <div class="md-form form-sm mb-5">
+                                                  <input type="email" id="modalLRInput12" class="form-control form-control-sm validate">
+                                                  <label data-error="wrong" data-success="right" for="modalLRInput12" class="fonts">Your email</label>
+                                              </div>
+
+                                              <div class="md-form form-sm mb-5">
+                                                  <input type="password" id="modalLRInput13" class="form-control form-control-sm validate">
+                                                  <label data-error="wrong" data-success="right" for="modalLRInput13" class="fonts">Your password</label>
+                                              </div>
+
+                                              <div class="md-form form-sm mb-4">
+                                                  <input type="password" id="modalLRInput14" class="form-control form-control-sm validate">
+                                                  <label data-error="wrong" data-success="right" for="modalLRInput14" class="fonts">Repeat password</label>
+                                              </div>
+
+                                              <div class="text-center form-sm mt-2">
+                                                  <button class="btn btn-info fonts">Sign up <i class="fa fa-sign-in ml-1"></i></button>
+                                              </div>
+
+                                          </div>
+                                          <!--Footer-->
+                                          <div class="modal-footer">
+                                              <button type="button" class="btn btn-outline-info waves-effect ml-auto fonts" data-dismiss="modal">Close</button>
+                                          </div>
+                                      </div>
+                                      <!--/.Panel 8-->
+                                  </div>
+
+                              </div>
+                          </div>
+                          <!--/.Content-->
+                      </div>
+                  </div>
+                  <!--Modal: Login / Register Form-->
+
+<div class="text-center">
+    <a href="" class="btn btn-rounded my-3 fonts" data-toggle="modal" data-target="#modalLRForm" id="buttonColor" style="margin-left: 35%;">Log-in or Sign-up!</a>
+</div>
+
         </div>
       </div>
     </section>
 
-    <section id="contact" class="content-section text-center">
+    <section id="contact" class="text-center">
       <div class="container">
         <div class="row">
           <div class="col-lg-8 mx-auto">
-            <h2>Developers  (Github Accounts)</h2>
-            <p></p>
+            <h2 style="margin-bottom: 20px; margin-top: 50px; color: white;" class="fonts">Developers</h2>
+          </div>
+        </div>
+            <!-- <p></p>
             <ul class="list-inline banner-social-buttons">
               <li class="list-inline-item">
                 <a href="https://github.com/falondarville" class="btn btn-default btn-lg">
@@ -114,15 +248,156 @@
               </li>
             </ul>
           </div>
+        </div> -->
+        <div class="row">
+                            <!--Card group-->
+              <div class="card-deck" style="margin-bottom: 50px;">
+
+                  <!--Card-->
+                  <div class="card mb-3">
+
+                      <!--Card image-->
+                      <div class="view overlay">
+                          <img class="img-fluid" src="https://mdbootstrap.com/img/Photos/Others/images/16.jpg" alt="Card image cap">
+                          <a href="#!">
+                              <div class="mask rgba-white-slight"></div>
+                          </a>
+                      </div>
+                      <!--Card image-->
+
+                      <!--Card content-->
+                      <div class="card-body">
+
+                          <!--Title-->
+                          <h4 class="card-title fonts">Jackson</h4>
+
+                          <!--Text-->
+                          <p class="card-text"></p>
+
+                          <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
+                          <a href="https://github.com/jackson-harris-iii"><i class="fa fa-github-square fa-2x" aria-hidden="true"></i></a>
+                          <a href="#"><i class="fa fa-linkedin-square fa-2x" aria-hidden="true"></i></a>
+                      </div>
+                      <!--Card content-->
+
+                  </div>
+                  <!--Card-->
+
+                  <!--Card-->
+                  <div class="card mb-3">
+
+                      <!--Card image-->
+                      <div class="view overlay">
+                          <img class="img-fluid" src="https://mdbootstrap.com/img/Photos/Others/images/14.jpg" alt="Card image cap">
+                          <a href="#!">
+                              <div class="mask rgba-white-slight"></div>
+                          </a>
+                      </div>
+                      <!--Card image-->
+
+                      <!--Card content-->
+                      <div class="card-body">
+                          <!--Title-->
+                          <h4 class="card-title fonts">Tanner</h4>
+
+                          <!--Text-->
+                          <p class="card-text"></p>
+
+                          <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
+                          <a href="https://github.com/tann3rjm129"><i class="fa fa-github-square fa-2x" aria-hidden="true"></i></a>
+                          <a href="#"><i class="fa fa-linkedin-square fa-2x" aria-hidden="true"></i></a>
+                      </div>
+                      <!--Card content-->
+
+                  </div>
+                  <!--Card-->
+
+                  <!--Card-->
+                  <div class="card mb-3">
+
+                      <!--Card image-->
+                      <div class="view overlay">
+                          <img class="img-fluid" src="https://mdbootstrap.com/img/Photos/Others/images/15.jpg" alt="Card image cap">
+                          <a href="#!">
+                              <div class="mask rgba-white-slight"></div>
+                          </a>
+                      </div>
+                      <!--Card image-->
+
+                      <!--Card content-->
+                      <div class="card-body">
+                          <!--Title-->
+                          <h4 class="card-title fonts">Falon</h4>
+
+                          <!--Text-->
+                          <p class="card-text"></p>
+
+                          <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
+                          <a href="https://github.com/falondarville"><i class="fa fa-github-square fa-2x" aria-hidden="true"></i></a>
+                          <a href="#"><i class="fa fa-linkedin-square fa-2x" aria-hidden="true"></i></a>
+                      </div>
+                      <!--Card content-->
+
+                  </div>
+                  <!--Card-->
+
+                  <!--Card-->
+                  <div class="card mb-3">
+
+                      <!--Card image-->
+                      <div class="view overlay">
+                          <img class="img-fluid" src="https://mdbootstrap.com/img/Photos/Others/images/16.jpg" alt="Card image cap">
+                          <a href="#!">
+                              <div class="mask rgba-white-slight"></div>
+                          </a>
+                      </div>
+                      <!--Card image-->
+
+                      <!--Card content-->
+                      <div class="card-body">
+
+                          <!--Title-->
+                          <h4 class="card-title fonts">Kyle</h4>
+
+                          <!--Text-->
+                          <p class="card-text"></p>
+
+                          <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
+                          <a href="https://github.com/kthomas0455"><i class="fa fa-github-square fa-2x" aria-hidden="true"></i></a>
+                          <a href="#"><i class="fa fa-linkedin-square fa-2x" aria-hidden="true"></i></a>
+                      </div>
+                      <!--Card content-->
+
+                  </div>
+
+              </div>
+              <!--Card group-->
         </div>
       </div>
     </section>
 
-    <footer>
-      <div class="container text-center">
+    
+      <div class="text-center fonts" id="Copyright" style="">
         <p id="Copyright">Copyright: Level UP 2018</p>
       </div>
-    </footer>
+ 
+
+
+
+<!-- JQuery -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!-- Bootstrap tooltips -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.13.0/umd/popper.min.js"></script>
+<!-- Bootstrap core JavaScript -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<!-- MDB core JavaScript -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.0/js/mdb.min.js"></script>
+
+<script src="https://code.jquery.com/jquery-3.3.1.js"
+  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+  crossorigin="anonymous">  
+</script>
+
 
   </body>
 
