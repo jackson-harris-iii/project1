@@ -1,4 +1,28 @@
+body {
+	background: url("https://media.istockphoto.com/photos/black-brick-wall-texture-brick-surface-as-background-picture-id660892894?k=6&m=660892894&s=612x612&w=0&h=13vlidaCsnkaUKxehIht7Xe_lgRgsaEfMImMI1ZMUfw=") bottom center scroll;
+		height: 600px;
+	background-size: 100% 100%;
+	background-color: solid #ffc107;
+}
+
+#button5 {
+
+	background-color: #ffc107;
+
+}
+
+h1{
+font-size: 35px;
+font-family: 'Futura';
+color: white;
+text-shadow: 0 0 5px blue, 0 0 10px blue, 0 0 20px blue, 0 0 30px blue, 0 0 40px blue, 0 0 55px blue, 0 0 75px blue;
+text-align: center;
+padding-top: 3%;
+font-style: italic;
+}
+
 .dropdown-menu{
+
 	opacity: .8;
 }
 
