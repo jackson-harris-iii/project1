@@ -123,12 +123,6 @@ var topicsObject = {
 	}
 }
 
-//iterate through object to check if marked complete
-//if complete, change opacity of card and add 20% to corresponding progress bar
-if (topicsObject.[i].complete === true) {
-	// $(selectedTopic).addClass("opacity"); if using selectedTopic, make variable a global variable
-}
-
 //hide youtube and quote div
 $("#individualTopic").addClass("hide");
 
@@ -200,11 +194,12 @@ $("#dropdown #changeDropdown").on("click", function(){
 
 	$("#allTopics #topicsRow").empty();
 	var idChange = ["change1", "change2", "change3", "change4", "change5"];
-	var titleChange = ["Fear of Change 1", "Fear of Change 2", "Fear of Change 3", "Fear of Change 4", "Fear of Change 5"];
+	var titleChange = ["Change is Inevitable", "Change is Healthy", "Change is Normal", "Nothing is Stagnant", "Embrace Change"];
+	var summaryChange = ["It's inevitable that change is going to happen in your life. All life is change.", "Change is healthy because it means that things are moving forward, even if it doesn't appear that way at face value.", "It's normal for things to change. People grow, situations change, and life goes on. Embrace the movement.", "Nothing remains the same. Stagnation can only indicate that there is no growth. Without growth, we cannot move forward.", "Welcome and embrace change into your life and the movements of life will welcome you. Be brave in the face of the new."]
 
 	for (var i=0; i < idChange.length; i++) {
 
-		$("#allTopics #topicsRow").append("<div class='col-md-3'><div class='card card-cascade narrower'><div class='view overlay'><a><div class='mask rgba-white-slight'></div></a></div><div class='card-body'><h5 class='pink-text'>" + titleChange[i] + "</h5><h4 class='card-title'>1</h4><p class='card-text'>Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi.</p><a class='btn btn-unique topicButton' id=" + idChange[i] + ">Button</a></div></div>");
+		$("#allTopics #topicsRow").append("<div class='col-md-3'><div class='card card-cascade narrower'><div class='view overlay'><a><div class='mask rgba-white-slight'></div></a></div><div class='card-body'><h5 class='pink-text'>" + titleChange[i] + "</h5><h4 class='card-title'>1</h4><p class='card-text'>" + summaryChange[i] + "</p><a class='btn btn-unique topicButton' id=" + idChange[i] + ">Button</a></div></div>");
 
 	}
 
@@ -215,11 +210,12 @@ $("#dropdown #embarrDropdown").on("click", function(){
 
 	$("#allTopics #topicsRow").empty();
 	var idChange = ["embarr1", "embarr2", "embarr3", "embarr4", "embarr5"];
-	var titleChange = ["Fear of Embarrasement 1", "Fear of Embarrasement 2", "Fear of Embarrasement 3", "Fear of Embarrasement 4", "Fear of Embarrasement 5"];
+	var titleChange = ["Embarrassement Happens", "Embarrassement Makes You Better", "Embarrassement Helps You Grow", "How Are You Affected?", "Don't Be Afraid of Embarrassement"];
+	var summaryChange = ["It's okay to be embarrassed but it cannot be a primary emotion in your life in order for you to move forward.", "When you feel embarrassed, it means that you are living in the moment. Be aware that this is a good sign that you actively participating in life.", "You grow when you recognize your emotions. Understand why you feel embarrassed by particular situations, and own it.", "Find what triggers your feelings of embarrassement and keep those things in mind when you enter unfamiliar situations.", "If you are afraid of embarrassement, then you are afraid of a big emotion that makes you human. Do not be afraid of the things that make you who you are."]
 
 	for (var i=0; i < idChange.length; i++) {
 
-		$("#allTopics #topicsRow").append("<div class='col-md-3'><div class='card card-cascade narrower'><div class='view overlay'><a><div class='mask rgba-white-slight'></div></a></div><div class='card-body'><h5 class='pink-text'>" + titleChange[i] + "</h5><h4 class='card-title'>1</h4><p class='card-text'>Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi.</p><a class='btn btn-unique topicButton' id=" + idChange[i] + ">Button</a></div></div>");
+		$("#allTopics #topicsRow").append("<div class='col-md-3'><div class='card card-cascade narrower'><div class='view overlay'><a><div class='mask rgba-white-slight'></div></a></div><div class='card-body'><h5 class='pink-text'>" + titleChange[i] + "</h5><h4 class='card-title'>1</h4><p class='card-text'>" + summaryChange[i] + "</p><a class='btn btn-unique topicButton' id=" + idChange[i] + ">Button</a></div></div>");
 
 	}
 
@@ -230,11 +226,12 @@ $("#dropdown #failDropdown").on("click", function(){
 
 	$("#allTopics #topicsRow").empty();
 	var idChange = ["fail1", "fail2", "fail3", "fail4", "fail5"];
-	var titleChange = ["Fear of Fail 1", "Fear of Fail 2", "Fear of Fail 3", "Fear of Fail 4", "Fear of Fail 5"];
+	var titleChange = ["Failure is Part of Life", "If You Fail, Try Again", "Failure Can't Stop You", "Fearing Failure is Not Helpful", "Failure Means You're Alive"];
+	var summaryChange = ["Part of being a human on this earth is confront failure. You're not unique if you have failed. This has happened to all of us.", "When you fail, be happy that you can start over and try again. There is no reason for giving up. Use it as fuel to move forward.", "Failure does not mean that something will never work. It only means that something did not work one time you tried it.", "When you fear failure, you do not move forward. Embrace failure and you will not be afriad to try and continue towards your goals.", "If you fail, it means you are trying. It means you're not just sitting back and letting life happen to you. Good job."]
 
 	for (var i=0; i < idChange.length; i++) {
 
-		$("#allTopics #topicsRow").append("<div class='col-md-3'><div class='card card-cascade narrower'><div class='view overlay'><a><div class='mask rgba-white-slight'></div></a></div><div class='card-body'><h5 class='pink-text'>" + titleChange[i] + "</h5><h4 class='card-title'>1</h4><p class='card-text'>Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi.</p><a class='btn btn-unique topicButton' id=" + idChange[i] + ">Button</a></div></div>");
+		$("#allTopics #topicsRow").append("<div class='col-md-3'><div class='card card-cascade narrower'><div class='view overlay'><a><div class='mask rgba-white-slight'></div></a></div><div class='card-body'><h5 class='pink-text'>" + titleChange[i] + "</h5><h4 class='card-title'>1</h4><p class='card-text'>" + summaryChange[i] + "</p><a class='btn btn-unique topicButton' id=" + idChange[i] + ">Button</a></div></div>");
 
 	}
 	$("#allTopics #topicsRow").append("<div class='col-md-12'><div class='progress'><div id='failBar' class='progress-bar progress-bar-striped progress-bar-animated' role='progressbar' aria-valuenow='75' aria-valuemin='0' aria-valuemax='100' style='width: 25%; margin-top: 20px;'></div></div></div>");
@@ -244,11 +241,12 @@ $("#dropdown #rejectDropdown").on("click", function(){
 
 	$("#allTopics #topicsRow").empty();
 	var idChange = ["reject1", "reject2", "reject3", "reject4", "reject5"];
-	var titleChange = ["Fear of Rejection 1", "Fear of Rejection 2", "Fear of Rejection 3", "Fear of Rejection 4", "Fear of Rejection 5"];
+	var titleChange = ["Rejection Means You're Trying", "Rejection is Not Personal", "Rejection Makes You Stronger", "Rejection Breaks You Out of Routine", "Rejection is a Test of Your Strength"];
+	var summaryChange = ["If you get rejection, it means that you went out into the world and tried to get something you didn't have before. Be proud of yourself for putting yourself out there.", "Just because you have been rejected does not mean that there is something wrong with you. Approach the situation with a healthy regard for all of the variables at play.", "When you get rejected, you can gain a lot of information about the situation. Learn from it, no matter how difficult it is to think about it.", "When you experience rejection, there's a wonderful thing that happens. You break out of your routine, and gain an expanded view of the world.", "Rejection is a test. It tells you a lot about your ability to bounce back from not getting something you want. It asks you, how bad do you want it?"]
 
 	for (var i=0; i < idChange.length; i++) {
 
-		$("#allTopics #topicsRow").append("<div class='col-md-3'><div class='card card-cascade narrower'><div class='view overlay'><a><div class='mask rgba-white-slight'></div></a></div><div class='card-body'><h5 class='pink-text'>" + titleChange[i] + "</h5><h4 class='card-title'>1</h4><p class='card-text'>Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi.</p><a class='btn btn-unique topicButton' id=" + idChange[i] + ">Button</a></div></div>");
+		$("#allTopics #topicsRow").append("<div class='col-md-3'><div class='card card-cascade narrower'><div class='view overlay'><a><div class='mask rgba-white-slight'></div></a></div><div class='card-body'><h5 class='pink-text'>" + titleChange[i] + "</h5><h4 class='card-title'>1</h4><p class='card-text'>" + summaryChange[i] + "</p><a class='btn btn-unique topicButton' id=" + idChange[i] + ">Button</a></div></div>");
 
 	}
 	$("#allTopics #topicsRow").append("<div class='col-md-12'><div class='progress'><div id='rejectBar' class='progress-bar progress-bar-striped progress-bar-animated' role='progressbar' aria-valuenow='75' aria-valuemin='0' aria-valuemax='100' style='width: 25%; margin-top: 20px;'></div></div></div>");
