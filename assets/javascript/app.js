@@ -93,12 +93,18 @@ $(".completeBtn").on("click", function(){
 
 	$("body").find(`#${selectedTopic}`).addClass("opacity");
 
+	var numberOfOpacityButtons = $("body").find(".topicButton.opacity").length;
+
+	var percentage = (numberOfOpacityButtons/4) * 100;
+
+	$("body").find(".progress-bar").css("width", percentage + "%");
+
 });
 
 //when a user clicks on a specific card button, the youtube div will appear with the relevant information
 $("body").on("click", ".topicButton", function(event){
 
-	//prevent button submit
+	//prevent button submit 
 	event.preventDefault();
 
 	//if task is already completed, don't show the youtube div again
@@ -151,7 +157,7 @@ function displaySelectedTopic(selectedTopic) {
 			author = "";
 		}
 
-		//Adds the quote to the page
+		//add the quote to the page
 		$(".quoteDIV").html(quote + "<br>" + author)
 	});
 
@@ -175,7 +181,7 @@ $("#dropdown #changeDropdown").on("click", function(){
 
 	}
 
-	$("#allTopics #topicsRow").append("<div class='col-md-12'><div class='progress'><div id='changeBar' class='progress-bar progress-bar-striped progress-bar-animated' role='progressbar' aria-valuenow='75' aria-valuemin='0' aria-valuemax='100' style='width: 25%; margin-top: 20px;'></div></div></div>");
+	$("#allTopics #topicsRow").append("<div class='col-md-12'><div class='progress'><div id='changeBar' class='progress-bar progress-bar-striped progress-bar-animated' role='progressbar' aria-valuenow='75' aria-valuemin='0' aria-valuemax='100'></div></div></div>");
 
 });
 
@@ -192,7 +198,7 @@ $("#dropdown #embarrDropdown").on("click", function(){
 
 	}
 
-	$("#allTopics #topicsRow").append("<div class='col-md-12'><div class='progress'><div id='embarrBar' class='progress-bar progress-bar-striped progress-bar-animated' role='progressbar' aria-valuenow='75' aria-valuemin='0' aria-valuemax='100' style='width: 25%; margin-top: 20px;'></div></div></div>");
+	$("#allTopics #topicsRow").append("<div class='col-md-12'><div class='progress'><div id='embarrBar' class='progress-bar progress-bar-striped progress-bar-animated' role='progressbar' aria-valuenow='75' aria-valuemin='0' aria-valuemax='100'></div></div></div>");
 });
 
 $("#dropdown #failDropdown").on("click", function(){
@@ -207,7 +213,7 @@ $("#dropdown #failDropdown").on("click", function(){
 		$("#allTopics #topicsRow").append("<div class='col-md-3'><div class='card card-cascade narrower'><div class='view overlay'><a><div class='mask rgba-white-slight'></div></a></div><div class='card-body'><h5 class='pink-text'>" + titleChange[i] + "</h5><h4 class='card-title'>1</h4><p class='card-text'>" + summaryChange[i] + "</p><a class='btn btn-unique topicButton' id=" + idChange[i] + ">Button</a></div></div>");
 
 	}
-	$("#allTopics #topicsRow").append("<div class='col-md-12'><div class='progress'><div id='failBar' class='progress-bar progress-bar-striped progress-bar-animated' role='progressbar' aria-valuenow='75' aria-valuemin='0' aria-valuemax='100' style='width: 25%; margin-top: 20px;'></div></div></div>");
+	$("#allTopics #topicsRow").append("<div class='col-md-12'><div class='progress'><div id='failBar' class='progress-bar progress-bar-striped progress-bar-animated' role='progressbar' aria-valuenow='75' aria-valuemin='0' aria-valuemax='100'></div></div></div>");
 });
 
 $("#dropdown #rejectDropdown").on("click", function(){
@@ -222,7 +228,7 @@ $("#dropdown #rejectDropdown").on("click", function(){
 		$("#allTopics #topicsRow").append("<div class='col-md-3'><div class='card card-cascade narrower'><div class='view overlay'><a><div class='mask rgba-white-slight'></div></a></div><div class='card-body'><h5 class='pink-text'>" + titleChange[i] + "</h5><h4 class='card-title'>1</h4><p class='card-text'>" + summaryChange[i] + "</p><a class='btn btn-unique topicButton' id=" + idChange[i] + ">Button</a></div></div>");
 
 	}
-	$("#allTopics #topicsRow").append("<div class='col-md-12'><div class='progress'><div id='rejectBar' class='progress-bar progress-bar-striped progress-bar-animated' role='progressbar' aria-valuenow='75' aria-valuemin='0' aria-valuemax='100' style='width: 25%; margin-top: 20px;'></div></div></div>");
+	$("#allTopics #topicsRow").append("<div class='col-md-12'><div class='progress'><div id='rejectBar' class='progress-bar progress-bar-striped progress-bar-animated' role='progressbar' aria-valuenow='75' aria-valuemin='0' aria-valuemax='100'></div></div></div>");
 });
 
 });
