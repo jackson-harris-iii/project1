@@ -6,6 +6,8 @@ Description
 
 Our application offer users self-help videos, quotes, and challenges to help them conquer their fears. We focus on gamifying the process, to make self-improvement fun and interactive. 
 
+![alt-text](home-page/images/image2.png)
+
 Motivation
 
 One of our classmates was interested in self-improvement and had seen application on the app store with a similar concept. However, the apps didn't integrate gamification with self-improvement, so combining the two made sense. 
@@ -13,6 +15,8 @@ One of our classmates was interested in self-improvement and had seen applicatio
 Result
 
 Using JavaScript, jQuery, front-end styling, the YouTube and They Said So APIs, and Firebase, we allow users to target specific areas of self-improvement that they want to work on. 
+
+![alt-text](home-page/images/image3.png)
 
 Team Effort
 
@@ -47,6 +51,8 @@ Dynamically populate cards and content onto the topics page
 Show user progress on page and dynamically demonstrate which tasks have already been completed
 Determine sequence of logic for completing task and preventing users for readdressing same tasks
 Integrate content population logic with the user interface
+
+![alt-text](home-page/images/image4.png)
 
 Challenges
 
