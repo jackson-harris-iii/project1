@@ -15,6 +15,11 @@
 		2px 2px 0 black;
 }
 
+#headerText {
+	border: 5px solid #5f93af;
+
+}
+
 #about{
 	padding-top: 100px;
 	padding-bottom: 100px;
@@ -24,6 +29,8 @@
 }
 
 #team{
+	border-top: 5px solid #ffc107;
+	border-bottom: 5px solid #ffc107;
 	font-size: 45px;
 	color: white;
 	text-shadow:
@@ -33,8 +40,17 @@
 		2px 2px 0 black;
 }
 
+#team2{
+	color: white;
+	text-shadow:
+		-1px -1px 0 black,
+		1px -1px 0 black,
+		-1px 1px 0 black,
+		1px 1px 0 black;
+}
+
 #download{
-	background: url(images/phone-wood.jpg);
+	background: url(images/phone-wood-logo.jpg);
 	background-size: 100% 100%;
 	border-bottom: 10px solid #ffc107;
 	border-top: 10px solid #ffc107;
@@ -48,8 +64,8 @@
 
 #Subscribe{
 	margin-left: 35%;
-	border-top: 5px solid #ffc107;
-	border-bottom: 5px solid #ffc107;
+	border-top: 5px solid #5f93af;
+	border-bottom: 5px solid #5f93af;
 	font-size: 60px;
 	text-shadow:
 		-2px -2px 0 black,
@@ -81,7 +97,7 @@
 }
 
 #buttonColor{
-	background-color: #ffc107;
+	background-color: #5f93af;
 	color: black;
 }
 
@@ -93,4 +109,8 @@
 
 .fonts {
 	font-family: neon1;
+}
+
+#mainNav {
+
 }
