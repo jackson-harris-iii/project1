@@ -1,277 +1,41 @@
-[debug] [2018-03-14T05:05:45.817Z] ----------------------------------------------------------------------
-[debug] [2018-03-14T05:05:45.820Z] Command:       /usr/local/Cellar/node/8.9.1/bin/node /usr/local/bin/firebase serve
-[debug] [2018-03-14T05:05:45.820Z] CLI Version:   3.17.6
-[debug] [2018-03-14T05:05:45.820Z] Platform:      darwin
-[debug] [2018-03-14T05:05:45.820Z] Node Version:  v8.9.1
-[debug] [2018-03-14T05:05:45.821Z] Time:          Tue Mar 13 2018 22:05:45 GMT-0700 (PDT)
-[debug] [2018-03-14T05:05:45.821Z] ----------------------------------------------------------------------
+[debug] [2018-03-14T08:30:10.452Z] ----------------------------------------------------------------------
+[debug] [2018-03-14T08:30:10.454Z] Command:       /usr/local/Cellar/node/8.9.1/bin/node /usr/local/bin/firebase serve
+[debug] [2018-03-14T08:30:10.454Z] CLI Version:   3.17.6
+[debug] [2018-03-14T08:30:10.454Z] Platform:      darwin
+[debug] [2018-03-14T08:30:10.454Z] Node Version:  v8.9.1
+[debug] [2018-03-14T08:30:10.455Z] Time:          Wed Mar 14 2018 01:30:10 GMT-0700 (PDT)
+[debug] [2018-03-14T08:30:10.455Z] ----------------------------------------------------------------------
 [debug] 
-[debug] [2018-03-14T05:05:45.833Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
-[debug] [2018-03-14T05:05:45.834Z] > authorizing via signed-in user
-[debug] [2018-03-14T05:05:45.836Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
-[debug] [2018-03-14T05:05:45.836Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+[debug] [2018-03-14T08:30:10.472Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2018-03-14T08:30:10.472Z] > authorizing via signed-in user
+[debug] [2018-03-14T08:30:10.474Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2018-03-14T08:30:10.474Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
  { refresh_token: '1/xkB2wtrPcg9PMDLYMxzUdq9MpQwzh7i0sNltI8YaFSA',
   client_id: '563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com',
   client_secret: 'j9iVZfS8kkCEFUPaAeJV0sAi',
   grant_type: 'refresh_token',
   scope: 'email https://www.googleapis.com/auth/cloud-platform https://www.googleapis.com/auth/cloudplatformprojects.readonly https://www.googleapis.com/auth/firebase openid' } 
- Tue Mar 13 2018 22:05:45 GMT-0700 (PDT)
-[debug] [2018-03-14T05:05:46.634Z] <<< HTTP RESPONSE 200
-[debug] [2018-03-14T05:05:46.650Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/level-up-8ab46  
+ Wed Mar 14 2018 01:30:10 GMT-0700 (PDT)
+[debug] [2018-03-14T08:30:10.806Z] <<< HTTP RESPONSE 200
+[debug] [2018-03-14T08:30:10.821Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/level-up-8ab46  
   
- Tue Mar 13 2018 22:05:46 GMT-0700 (PDT)
-[debug] [2018-03-14T05:05:47.276Z] <<< HTTP RESPONSE 200
-[debug] [2018-03-14T05:05:47.276Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/level-up-8ab46/tokens  
+ Wed Mar 14 2018 01:30:10 GMT-0700 (PDT)
+[debug] [2018-03-14T08:30:11.390Z] <<< HTTP RESPONSE 200
+[debug] [2018-03-14T08:30:11.391Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/level-up-8ab46/tokens  
   
- Tue Mar 13 2018 22:05:47 GMT-0700 (PDT)
-[debug] [2018-03-14T05:05:47.819Z] <<< HTTP RESPONSE 200
-[debug] [2018-03-14T05:05:47.820Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/level-up-8ab46  
+ Wed Mar 14 2018 01:30:11 GMT-0700 (PDT)
+[debug] [2018-03-14T08:30:11.858Z] <<< HTTP RESPONSE 200
+[debug] [2018-03-14T08:30:11.859Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/level-up-8ab46  
   
- Tue Mar 13 2018 22:05:47 GMT-0700 (PDT)
-[debug] [2018-03-14T05:05:49.049Z] <<< HTTP RESPONSE 200
+ Wed Mar 14 2018 01:30:11 GMT-0700 (PDT)
+[debug] [2018-03-14T08:30:12.619Z] <<< HTTP RESPONSE 200
 [info] 
 [info] === Serving from '/Users/Home/Bootcamp_Stuff/Projects/project1-fb'...
 [info] 
-[debug] [2018-03-14T05:05:49.052Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/959253299439/clients/_:getWebAppConfig  
+[debug] [2018-03-14T08:30:12.621Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/959253299439/clients/_:getWebAppConfig  
   
- Tue Mar 13 2018 22:05:49 GMT-0700 (PDT)
-[debug] [2018-03-14T05:05:50.078Z] <<< HTTP RESPONSE 200
-[info] i  hosting: Serving hosting files from: public
-[info] ✔  hosting: Local server: http://localhost:5000
-
-[debug] [2018-03-14T05:20:22.476Z] Error: connect EHOSTUNREACH 216.58.195.227:443 - Local (172.20.10.4:63941)
-    at Object._errnoException (util.js:1024:11)
-    at _exceptionWithHostPort (util.js:1046:20)
-    at internalConnect (net.js:971:16)
-    at GetAddrInfoReqWrap.emitLookup [as callback] (net.js:1106:7)
-    at GetAddrInfoReqWrap.onlookup [as oncomplete] (dns.js:97:10)
-[error] 
-[error] Error: An unexpected error has occurred.
-[debug] [2018-03-14T05:20:22.478Z] Error: socket hang up
-    at createHangUpError (_http_client.js:331:15)
-    at TLSSocket.socketCloseListener (_http_client.js:363:23)
-    at emitOne (events.js:121:20)
-    at TLSSocket.emit (events.js:211:7)
-    at _handle.close (net.js:554:12)
-    at TCP.done [as _onclose] (_tls_wrap.js:356:7)
-[error] 
-[error] Error: An unexpected error has occurred.
-[debug] [2018-03-14T05:20:22.484Z] Error: connect EHOSTUNREACH 216.58.195.227:443 - Local (172.20.10.4:63952)
-    at Object._errnoException (util.js:1024:11)
-    at _exceptionWithHostPort (util.js:1046:20)
-    at internalConnect (net.js:971:16)
-    at GetAddrInfoReqWrap.emitLookup [as callback] (net.js:1106:7)
-    at GetAddrInfoReqWrap.onlookup [as oncomplete] (dns.js:97:10)
-[error] 
-[error] Error: An unexpected error has occurred.
-[debug] [2018-03-14T05:20:22.485Z] Error: connect EHOSTUNREACH 216.58.195.227:443 - Local (172.20.10.4:63953)
-    at Object._errnoException (util.js:1024:11)
-    at _exceptionWithHostPort (util.js:1046:20)
-    at internalConnect (net.js:971:16)
-    at GetAddrInfoReqWrap.emitLookup [as callback] (net.js:1106:7)
-    at GetAddrInfoReqWrap.onlookup [as oncomplete] (dns.js:97:10)
-[error] 
-[error] Error: An unexpected error has occurred.
-[debug] [2018-03-14T05:20:22.486Z] Error: connect EHOSTUNREACH 216.58.195.227:443 - Local (172.20.10.4:63954)
-    at Object._errnoException (util.js:1024:11)
-    at _exceptionWithHostPort (util.js:1046:20)
-    at internalConnect (net.js:971:16)
-    at GetAddrInfoReqWrap.emitLookup [as callback] (net.js:1106:7)
-    at GetAddrInfoReqWrap.onlookup [as oncomplete] (dns.js:97:10)
-[error] 
-[error] Error: An unexpected error has occurred.
-[debug] [2018-03-14T05:20:22.487Z] Error: socket hang up
-    at createHangUpError (_http_client.js:331:15)
-    at TLSSocket.socketCloseListener (_http_client.js:363:23)
-    at emitOne (events.js:121:20)
-    at TLSSocket.emit (events.js:211:7)
-    at _handle.close (net.js:554:12)
-    at TCP.done [as _onclose] (_tls_wrap.js:356:7)
-[error] 
-[error] Error: An unexpected error has occurred.
-[debug] [2018-03-14T05:20:22.487Z] Error: socket hang up
-    at createHangUpError (_http_client.js:331:15)
-    at TLSSocket.socketCloseListener (_http_client.js:363:23)
-    at emitOne (events.js:121:20)
-    at TLSSocket.emit (events.js:211:7)
-    at _handle.close (net.js:554:12)
-    at TCP.done [as _onclose] (_tls_wrap.js:356:7)
-[error] 
-[error] Error: An unexpected error has occurred.
-[debug] [2018-03-14T05:20:22.488Z] Error: socket hang up
-    at createHangUpError (_http_client.js:331:15)
-    at TLSSocket.socketCloseListener (_http_client.js:363:23)
-    at emitOne (events.js:121:20)
-    at TLSSocket.emit (events.js:211:7)
-    at _handle.close (net.js:554:12)
-    at TCP.done [as _onclose] (_tls_wrap.js:356:7)
-[error] 
-[error] Error: An unexpected error has occurred.
-[debug] [2018-03-14T05:20:22.489Z] Error: connect EHOSTUNREACH 216.58.195.227:443 - Local (172.20.10.4:63957)
-    at Object._errnoException (util.js:1024:11)
-    at _exceptionWithHostPort (util.js:1046:20)
-    at internalConnect (net.js:971:16)
-    at GetAddrInfoReqWrap.emitLookup [as callback] (net.js:1106:7)
-    at GetAddrInfoReqWrap.onlookup [as oncomplete] (dns.js:97:10)
-[error] 
-[error] Error: An unexpected error has occurred.
-[debug] [2018-03-14T05:20:22.490Z] Error: socket hang up
-    at createHangUpError (_http_client.js:331:15)
-    at TLSSocket.socketCloseListener (_http_client.js:363:23)
-    at emitOne (events.js:121:20)
-    at TLSSocket.emit (events.js:211:7)
-    at _handle.close (net.js:554:12)
-    at TCP.done [as _onclose] (_tls_wrap.js:356:7)
-[error] 
-[error] Error: An unexpected error has occurred.
-[debug] [2018-03-14T05:21:12.924Z] ----------------------------------------------------------------------
-[debug] [2018-03-14T05:21:12.926Z] Command:       /usr/local/Cellar/node/8.9.1/bin/node /usr/local/bin/firebase serve
-[debug] [2018-03-14T05:21:12.927Z] CLI Version:   3.17.6
-[debug] [2018-03-14T05:21:12.927Z] Platform:      darwin
-[debug] [2018-03-14T05:21:12.927Z] Node Version:  v8.9.1
-[debug] [2018-03-14T05:21:12.927Z] Time:          Tue Mar 13 2018 22:21:12 GMT-0700 (PDT)
-[debug] [2018-03-14T05:21:12.927Z] ----------------------------------------------------------------------
-[debug] 
-[debug] [2018-03-14T05:21:12.940Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
-[debug] [2018-03-14T05:21:12.940Z] > authorizing via signed-in user
-[debug] [2018-03-14T05:21:12.942Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/level-up-8ab46  
-  
- Tue Mar 13 2018 22:21:12 GMT-0700 (PDT)
-[debug] [2018-03-14T05:21:14.069Z] <<< HTTP RESPONSE 200
-[debug] [2018-03-14T05:21:14.070Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/level-up-8ab46/tokens  
-  
- Tue Mar 13 2018 22:21:14 GMT-0700 (PDT)
-[debug] [2018-03-14T05:21:14.886Z] <<< HTTP RESPONSE 200
-[debug] [2018-03-14T05:21:14.888Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/level-up-8ab46  
-  
- Tue Mar 13 2018 22:21:14 GMT-0700 (PDT)
-[debug] [2018-03-14T05:21:16.050Z] <<< HTTP RESPONSE 200
-[info] 
-[info] === Serving from '/Users/Home/Bootcamp_Stuff/Projects/project1-fb'...
-[info] 
-[debug] [2018-03-14T05:21:16.051Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/959253299439/clients/_:getWebAppConfig  
-  
- Tue Mar 13 2018 22:21:16 GMT-0700 (PDT)
-[debug] [2018-03-14T05:21:16.542Z] <<< HTTP RESPONSE 200
-[info] i  hosting: Serving hosting files from: public
-[info] ✔  hosting: Local server: http://localhost:5000
-
-[debug] [2018-03-14T05:24:14.517Z] Error: connect ETIMEDOUT 216.58.194.195:443
-    at Object._errnoException (util.js:1024:11)
-    at _exceptionWithHostPort (util.js:1046:20)
-    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1182:14)
-[error] 
-[error] Error: An unexpected error has occurred.
-[debug] [2018-03-14T05:24:14.520Z] Error: socket hang up
-    at createHangUpError (_http_client.js:331:15)
-    at TLSSocket.socketCloseListener (_http_client.js:363:23)
-    at emitOne (events.js:121:20)
-    at TLSSocket.emit (events.js:211:7)
-    at _handle.close (net.js:554:12)
-    at TCP.done [as _onclose] (_tls_wrap.js:356:7)
-[error] 
-[error] Error: An unexpected error has occurred.
-[debug] [2018-03-14T05:24:14.561Z] Error: connect ETIMEDOUT 216.58.194.195:443
-    at Object._errnoException (util.js:1024:11)
-    at _exceptionWithHostPort (util.js:1046:20)
-    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1182:14)
-[error] 
-[error] Error: An unexpected error has occurred.
-[debug] [2018-03-14T05:24:14.561Z] Error: socket hang up
-    at createHangUpError (_http_client.js:331:15)
-    at TLSSocket.socketCloseListener (_http_client.js:363:23)
-    at emitOne (events.js:121:20)
-    at TLSSocket.emit (events.js:211:7)
-    at _handle.close (net.js:554:12)
-    at TCP.done [as _onclose] (_tls_wrap.js:356:7)
-[error] 
-[error] Error: An unexpected error has occurred.
-[debug] [2018-03-14T05:24:14.596Z] Error: connect ETIMEDOUT 216.58.194.195:443
-    at Object._errnoException (util.js:1024:11)
-    at _exceptionWithHostPort (util.js:1046:20)
-    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1182:14)
-[error] 
-[error] Error: An unexpected error has occurred.
-[debug] [2018-03-14T05:24:14.597Z] Error: socket hang up
-    at createHangUpError (_http_client.js:331:15)
-    at TLSSocket.socketCloseListener (_http_client.js:363:23)
-    at emitOne (events.js:121:20)
-    at TLSSocket.emit (events.js:211:7)
-    at _handle.close (net.js:554:12)
-    at TCP.done [as _onclose] (_tls_wrap.js:356:7)
-[error] 
-[error] Error: An unexpected error has occurred.
-[debug] [2018-03-14T05:25:25.589Z] ----------------------------------------------------------------------
-[debug] [2018-03-14T05:25:25.592Z] Command:       /usr/local/Cellar/node/8.9.1/bin/node /usr/local/bin/firebase serve
-[debug] [2018-03-14T05:25:25.592Z] CLI Version:   3.17.6
-[debug] [2018-03-14T05:25:25.592Z] Platform:      darwin
-[debug] [2018-03-14T05:25:25.592Z] Node Version:  v8.9.1
-[debug] [2018-03-14T05:25:25.593Z] Time:          Tue Mar 13 2018 22:25:25 GMT-0700 (PDT)
-[debug] [2018-03-14T05:25:25.593Z] ----------------------------------------------------------------------
-[debug] 
-[debug] [2018-03-14T05:25:25.604Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
-[debug] [2018-03-14T05:25:25.604Z] > authorizing via signed-in user
-[debug] [2018-03-14T05:25:25.606Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/level-up-8ab46  
-  
- Tue Mar 13 2018 22:25:25 GMT-0700 (PDT)
-[debug] [2018-03-14T05:25:55.674Z] Error: connect EHOSTUNREACH 104.197.85.31:443 - Local (172.20.10.4:65477)
-    at Object._errnoException (util.js:1024:11)
-    at _exceptionWithHostPort (util.js:1046:20)
-    at internalConnect (net.js:971:16)
-    at GetAddrInfoReqWrap.emitLookup [as callback] (net.js:1106:7)
-    at GetAddrInfoReqWrap.onlookup [as oncomplete] (dns.js:97:10)
-[error] 
-[error] Error: Server Error. connect EHOSTUNREACH 104.197.85.31:443 - Local (172.20.10.4:65477)
-[debug] [2018-03-14T05:26:54.901Z] ----------------------------------------------------------------------
-[debug] [2018-03-14T05:26:54.903Z] Command:       /usr/local/Cellar/node/8.9.1/bin/node /usr/local/bin/firebase serve
-[debug] [2018-03-14T05:26:54.903Z] CLI Version:   3.17.6
-[debug] [2018-03-14T05:26:54.903Z] Platform:      darwin
-[debug] [2018-03-14T05:26:54.903Z] Node Version:  v8.9.1
-[debug] [2018-03-14T05:26:54.904Z] Time:          Tue Mar 13 2018 22:26:54 GMT-0700 (PDT)
-[debug] [2018-03-14T05:26:54.904Z] ----------------------------------------------------------------------
-[debug] 
-[debug] [2018-03-14T05:26:54.915Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
-[debug] [2018-03-14T05:26:54.915Z] > authorizing via signed-in user
-[debug] [2018-03-14T05:26:54.917Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/level-up-8ab46  
-  
- Tue Mar 13 2018 22:26:54 GMT-0700 (PDT)
-[debug] [2018-03-14T05:27:25.023Z] Error: connect EHOSTUNREACH 104.197.85.31:443 - Local (172.20.10.4:49474)
-    at Object._errnoException (util.js:1024:11)
-    at _exceptionWithHostPort (util.js:1046:20)
-    at internalConnect (net.js:971:16)
-    at GetAddrInfoReqWrap.emitLookup [as callback] (net.js:1106:7)
-    at GetAddrInfoReqWrap.onlookup [as oncomplete] (dns.js:97:10)
-[error] 
-[error] Error: Server Error. connect EHOSTUNREACH 104.197.85.31:443 - Local (172.20.10.4:49474)
-[debug] [2018-03-14T05:28:45.495Z] ----------------------------------------------------------------------
-[debug] [2018-03-14T05:28:45.498Z] Command:       /usr/local/Cellar/node/8.9.1/bin/node /usr/local/bin/firebase serve
-[debug] [2018-03-14T05:28:45.498Z] CLI Version:   3.17.6
-[debug] [2018-03-14T05:28:45.498Z] Platform:      darwin
-[debug] [2018-03-14T05:28:45.498Z] Node Version:  v8.9.1
-[debug] [2018-03-14T05:28:45.499Z] Time:          Tue Mar 13 2018 22:28:45 GMT-0700 (PDT)
-[debug] [2018-03-14T05:28:45.499Z] ----------------------------------------------------------------------
-[debug] 
-[debug] [2018-03-14T05:28:45.510Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
-[debug] [2018-03-14T05:28:45.510Z] > authorizing via signed-in user
-[debug] [2018-03-14T05:28:45.512Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/level-up-8ab46  
-  
- Tue Mar 13 2018 22:28:45 GMT-0700 (PDT)
-[debug] [2018-03-14T05:28:46.209Z] <<< HTTP RESPONSE 200
-[debug] [2018-03-14T05:28:46.210Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/level-up-8ab46/tokens  
-  
- Tue Mar 13 2018 22:28:46 GMT-0700 (PDT)
-[debug] [2018-03-14T05:28:47.167Z] <<< HTTP RESPONSE 200
-[debug] [2018-03-14T05:28:47.168Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/level-up-8ab46  
-  
- Tue Mar 13 2018 22:28:47 GMT-0700 (PDT)
-[debug] [2018-03-14T05:28:47.973Z] <<< HTTP RESPONSE 200
-[info] 
-[info] === Serving from '/Users/Home/Bootcamp_Stuff/Projects/project1-fb'...
-[info] 
-[debug] [2018-03-14T05:28:47.977Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/959253299439/clients/_:getWebAppConfig  
-  
- Tue Mar 13 2018 22:28:47 GMT-0700 (PDT)
-[debug] [2018-03-14T05:28:48.462Z] <<< HTTP RESPONSE 200
+ Wed Mar 14 2018 01:30:12 GMT-0700 (PDT)
+[debug] [2018-03-14T08:30:13.356Z] <<< HTTP RESPONSE 200
 [info] i  hosting: Serving hosting files from: public
 [info] ✔  hosting: Local server: http://localhost:5000
 
