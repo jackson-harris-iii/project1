@@ -29,3 +29,7 @@ font-style: italic;
 #individualTopic.hide {
 	display: none !important;
 }
+
+.opacity {
+	opacity: 0.2;
+}
