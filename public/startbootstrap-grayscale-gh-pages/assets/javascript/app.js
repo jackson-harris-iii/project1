@@ -1,4 +1,238 @@
 $(document).ready(function () {
+		console.log('less ready')
+
+		// Initialize Firebase
+		var config = {
+			apiKey: "AIzaSyCKWMCNkLOish_Bv8jc9ByMO3mVTGnzdSs",
+			authDomain: "level-up-8ab46.firebaseapp.com",
+			databaseURL: "https://level-up-8ab46.firebaseio.com",
+			projectId: "level-up-8ab46",
+			storageBucket: "level-up-8ab46.appspot.com",
+			messagingSenderId: "959253299439"
+		};
+		// firebase.initializeApp(config);
+
+		var database = firebase.database();
+		var provider = new firebase.auth.FacebookAuthProvider();
+
+		//checks to see if there is a user currently signed in
+		firebase.auth().onAuthStateChanged(function (user) {
+			if (user) {
+				console.log(user.email)
+				// User is signed in.
+				var displayName = user.displayName;
+				var email = user.email;
+				var emailVerified = user.emailVerified;
+				var photoURL = user.photoURL;
+				var isAnonymous = user.isAnonymous;
+				var uid = user.uid;
+				var providerData = user.providerData;
+				// ...
+			} else {
+				// User is signed out.
+				// ...
+			}
+		});
+
+		function register() {
+			//grabs form field data for new account creation
+			console.log('signUpTime!!!')
+			var email = $('#emailForm').val().trim()
+			var password = $('#passwordForm').val().trim()
+			var name = $('#nameForm').val().trim()
+
+			//creates user in authentication area for app
+			firebase.auth().createUserWithEmailAndPassword(email, password).catch(function (error) {
+				// Handle Errors here.
+				var errorCode = error.code;
+				var errorMessage = error.message;
+				// ...
+			});
+			//creates new user account in database
+			var userId = firebase.auth().currentUser.uid
+			firebase.database().ref('users/' + userId).set({
+				username: name,
+				email: email,
+				password: password
+			});
+
+			//once logged in loads topics page
+			$('body').load('topics.html')
+
+		}
+
+		function emailLogin() {
+			var email = $('#loginEmail').val().trim()
+			console.log(email)
+			var password = $('#loginPassword').val().trim()
+			firebase.auth().signInWithEmailAndPassword(email, password).catch(function (error) {
+				// Handle Errors here.
+				var errorCode = error.code;
+				var errorMessage = error.message;
+				// ...
+			});
+
+			$('body').load('topics.html')
+		}
+
+		function googleLogin() {
+			console.log('google-login')
+
+			var provider = new firebase.auth.GoogleAuthProvider();
+			var user = null;
+
+			firebase.auth().signInWithPopup(provider).then(function (result) {
+				// This gives you a Google Access Token. You can use it to access the Google API.
+				var token = result.credential.accessToken;
+				// The signed-in user info.
+				user = result.user;
+				console.log(user)
+
+				console.log(user.uid)
+
+				// stores user object in session storage
+				sessionStorage.setItem('user', JSON.stringify(user));
+
+				addUser(user)
+
+
+			}).catch(function (error) {
+				// Handle Errors here.
+				var errorCode = error.code;
+				var errorMessage = error.message;
+				// The email of the user's account used.
+				var email = error.email;
+				// The firebase.auth.AuthCredential type that was used.
+				var credential = error.credential;
+				// ...
+			}).done(loadTopicsPage());
+
+
+		}
+
+		function fbLogin() {
+			var provider = new firebase.auth.FacebookAuthProvider();
+			console.log('hello')
+
+			firebase.auth().signInWithPopup(provider).then(function (result) {
+				// This gives you a Facebook Access Token. You can use it to access the Facebook API.
+				var token = result.credential.accessToken;
+				// The signed-in user info.
+				var user = result.user;
+				// ...
+			}).catch(function (error) {
+				// Handle Errors here.
+				var errorCode = error.code;
+				var errorMessage = error.message;
+				// The email of the user's account used.
+				var email = error.email;
+				// The firebase.auth.AuthCredential type that was used.
+				var credential = error.credential;
+				// ...
+			})
+
+			$('body').load('topics.html')
+		}
+
+
+		function logOutUser() {
+			firebase.auth().signOut().then(function () {
+				// Sign-out successful.
+			}).catch(function (error) {
+				// An error happened.
+			});
+			console.log(user)
+
+		}
+
+		function addUser(user) {
+			console.log(user)
+			console.log(user.uid)
+			//adds user to database
+			firebase.database().ref('users/' + user.uid).set({
+				username: user.displayname,
+				email: user.email,
+			});
+		}
+
+		//allows users to use fbto login/create an account
+		$('body').on('click', '#facebookBtn', fbLogin)
+
+		//allows users to use google to login/create an account
+		$('body').on('click', '#googleBtn', googleLogin)
+
+		//allows users to sign up for the app
+		$('body').on('click', '#signUpSubmitBtn', register)
+
+		//allows users to sign in with email & password
+		$('body').on('click', '#signInBtn', emailLogin)
+
+		//allows users to log out of their account
+		$('body').on('click', '#logOutBtn', logOutUser)
+
+
+
+
+
+
+
+
+		// -----------------------------Begin Topics Page Database Integration----------------------------------------//
+
+
+		function updateUserProgress(selectedTopic, percentage) {
+			// var currentTopic = currentTarget['data-selected-id']
+			var currentTopic = this.attributes['data-selected-id'].nodeValue
+			// console.log(currentTopic)
+
+
+			//get user data from local storage
+			const userKey = Object.keys(window.localStorage)
+				.filter(it => it.startsWith('firebase:authUser'))[0];
+			const currentUser = userKey ? JSON.parse(localStorage.getItem(userKey)) : undefined;
+
+			var userID = currentUser.uid
+
+			console.log(currentTopic)
+
+			//update firebase with user progress
+			database.ref('users/' + userID + '/' + currentTopic).update({
+				'status': 'complete',
+			});
+
+			//gets users current total progress
+			var oldTotal = null
+			var newTotal = null
+			var ref = database.ref('users/' + userID + '/totalprogress');
+			ref.once('value').then(function (snapshot) {
+
+				console.log(snapshot.child)
+				oldTotal = snapshot.child('total').val();
+				console.log(oldTotal)
+				var newTotal = oldTotal + 6.25
+				console.log(newTotal)
+				database.ref('users/' + userID + '/totalprogress').update({
+					'total': newTotal
+				})
+			})
+
+		}
+
+		$('body').on('click', '.completeBtn', updateUserProgress)
+
+		function loadTopicsPage() {
+			window.location.href = 'topics.html'
+
+			$(document).ready(function () {
+
+				//get User data
+			})
+
+		}
+
+//-------------------------------Begin Topics Page js + databse listeners------------------------------------//
+
+
 
 	var topicsObject = {
 		change1: {
