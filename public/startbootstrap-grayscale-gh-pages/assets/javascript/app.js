@@ -1,5 +1,5 @@
 $(document).ready(function () {
-		console.log('less ready')
+		console.log('^4')
 
 		// Initialize Firebase
 		var config = {
@@ -16,9 +16,9 @@ $(document).ready(function () {
 		var provider = new firebase.auth.FacebookAuthProvider();
 
 		//checks to see if there is a user currently signed in
-		firebase.auth().onAuthStateChanged(function (user) {
+		window.onload = firebase.auth().onAuthStateChanged(function (user) {
 			if (user) {
-				console.log(user.email)
+				console.log(user)	
 				// User is signed in.
 				var displayName = user.displayName;
 				var email = user.email;
@@ -27,6 +27,7 @@ $(document).ready(function () {
 				var isAnonymous = user.isAnonymous;
 				var uid = user.uid;
 				var providerData = user.providerData;
+				console.log(user)
 				// ...
 			} else {
 				// User is signed out.
@@ -63,16 +64,22 @@ $(document).ready(function () {
 
 		function emailLogin() {
 			var email = $('#loginEmail').val().trim()
-			console.log(email)
 			var password = $('#loginPassword').val().trim()
+			sessionStorage.setItem('user', email);
 			firebase.auth().signInWithEmailAndPassword(email, password).catch(function (error) {
 				// Handle Errors here.
 				var errorCode = error.code;
 				var errorMessage = error.message;
 				// ...
-			});
+			}).then( function() {
+				
+				var user = firebase.auth().currentUser;
+				console.log(user)
+			}
+				).then(
+					loadTopicsPage()
+				);
 
-			$('body').load('topics.html')
 		}
 
 		function googleLogin() {
@@ -106,9 +113,8 @@ $(document).ready(function () {
 				var credential = error.credential;
 				// ...
 			}).done(loadTopicsPage());
-
-
 		}
+
 
 		function fbLogin() {
 			var provider = new firebase.auth.FacebookAuthProvider();
@@ -142,7 +148,6 @@ $(document).ready(function () {
 				// An error happened.
 			});
 			console.log(user)
-
 		}
 
 		function addUser(user) {
@@ -162,24 +167,18 @@ $(document).ready(function () {
 		$('body').on('click', '#googleBtn', googleLogin)
 
 		//allows users to sign up for the app
-		$('body').on('click', '#signUpSubmitBtn', register)
+		$('body').on('click', '#signUpButton', register)
 
 		//allows users to sign in with email & password
-		$('body').on('click', '#signInBtn', emailLogin)
+		$('body').on('click', '#logInButton', emailLogin)
 
 		//allows users to log out of their account
 		$('body').on('click', '#logOutBtn', logOutUser)
+	
 
-
-
-
-
-
-
-
-		// -----------------------------Begin Topics Page Database Integration----------------------------------------//
-
-
+		//-------------------------------Begin Topics Page Database Integration------------------------------------\\
+	
+																															
 		function updateUserProgress(selectedTopic, percentage) {
 			// var currentTopic = currentTarget['data-selected-id']
 			var currentTopic = this.attributes['data-selected-id'].nodeValue
@@ -187,34 +186,67 @@ $(document).ready(function () {
 
 
 			//get user data from local storage
+			
 			const userKey = Object.keys(window.localStorage)
 				.filter(it => it.startsWith('firebase:authUser'))[0];
-			const currentUser = userKey ? JSON.parse(localStorage.getItem(userKey)) : undefined;
+			var currentUser = userKey ? JSON.parse(localStorage.getItem(userKey)) : undefined;
+			console.log(currentUser)	
 
-			var userID = currentUser.uid
+			if (typeof currentUser === 'undefined'){
+				currentUser = sessionStorage.getItem('user')
 
-			console.log(currentTopic)
+				//gets current userID
+				var ref = database.ref('users');
+				ref.once('value').then(function (snapshot) {
 
-			//update firebase with user progress
-			database.ref('users/' + userID + '/' + currentTopic).update({
-				'status': 'complete',
-			});
-
-			//gets users current total progress
-			var oldTotal = null
-			var newTotal = null
-			var ref = database.ref('users/' + userID + '/totalprogress');
-			ref.once('value').then(function (snapshot) {
-
-				console.log(snapshot.child)
-				oldTotal = snapshot.child('total').val();
-				console.log(oldTotal)
-				var newTotal = oldTotal + 6.25
-				console.log(newTotal)
-				database.ref('users/' + userID + '/totalprogress').update({
-					'total': newTotal
+					console.log(snapshot.child)
+					oldTotal = snapshot.child('total').val();
+					console.log(oldTotal)
+					var newTotal = oldTotal + 6.25
+					console.log(newTotal)
+					database.ref('users/' + userID + '/totalprogress').update({
+						'total': newTotal
+					})
 				})
-			})
+
+				var usersRef = database.ref('users');
+					usersRef.child('email').orderByChild('email').equalTo(currentUser).on("child_added", function (snapshot) {
+						console.log(snapshot.val());
+				})
+
+				database.ref('users/' + userKey + '/' + currentTopic).update({
+					'status': 'complete',
+				});
+
+			}
+			else {
+				console.log('already verified')
+			
+				var userID = currentUser
+
+				console.log(currentUser)
+
+				//update firebase with user progress
+				database.ref('users/' + userID + '/' + currentTopic).update({
+					'status': 'complete',
+				});
+
+				//gets users current total progress
+				var oldTotal = null
+				var newTotal = null
+				var ref = database.ref('users/' + userID + '/totalprogress');
+				ref.once('value').then(function (snapshot) {
+
+					console.log(snapshot.child)
+					oldTotal = snapshot.child('total').val();
+					console.log(oldTotal)
+					var newTotal = oldTotal + 6.25
+					console.log(newTotal)
+					database.ref('users/' + userID + '/totalprogress').update({
+						'total': newTotal
+					})
+				})
+			}
 
 		}
 
@@ -230,8 +262,7 @@ $(document).ready(function () {
 
 		}
 
-//-------------------------------Begin Topics Page js + databse listeners------------------------------------//
-
+		//-------------------------------Begin Topics Page js------------------------------------\\
 
 
 	var topicsObject = {
