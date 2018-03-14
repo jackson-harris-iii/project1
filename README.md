@@ -8,7 +8,7 @@ Our application offer users self-help videos, quotes, and challenges to help the
 
 Motivation
 
-
+One of our classmates was interested in self-improvement and had seen application on the app store with a similar concept. However, the apps didn't integrate gamification with self-improvement, so combining the two made sense. 
 
 Result
 
@@ -16,7 +16,7 @@ Using JavaScript, jQuery, front-end styling, the YouTube and They Said So APIs, 
 
 Team Effort
 
-
+Tanner and Kyle worked on the user interface - from conception and planning to coding it out. Falon worked on the APIs and corresponding functionality to the topics page design. Jackson worked on Firebase, and the sign-ups through Google and Facebook. 
 
 Individual Responsibility
 
