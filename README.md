@@ -25,32 +25,32 @@ Tanner and Kyle worked on the user interface - from conception and planning to c
 Individual Responsibility
 
 Tanner: 
-Design a way for users to be able to sign in or sign up
-Present application overview succinctly 
-Created a brand surrounding the application
-Templating the topics page
-Content to explain the application
+1. Design a way for users to be able to sign in or sign up
+2. Present application overview succinctly 
+3. Created a brand surrounding the application
+4. Templating the topics page
+5. Content to explain the application
 
 Kyle
-Templating the marketing page
-Content to explain the application
-Styling and logic for the topics page
-Match the styling and flow of the original marketing design and duplicate onto the topics page
-Reactive styling based on functionality requirements
+1. Templating the marketing page
+2. Content to explain the application
+3. Styling and logic for the topics page
+4. Match the styling and flow of the original marketing design and duplicate onto the topics page
+5. Reactive styling based on functionality requirements
 
 Jackson
-Learn and integrate Google and Facebook log-in functionality
-Integrate log-ins with the user interface
-Create persistence through Firebase for the progress users have made
-Determine which variables to save to Firebase and connect this with user profile
-Integrate persistence logic into the visual counterpart
+1. Learn and integrate Google and Facebook log-in functionality
+2. Integrate log-ins with the user interface
+3. Create persistence through Firebase for the progress users have made
+4. Determine which variables to save to Firebase and connect this with user profile
+5. Integrate persistence logic into the visual counterpart
 
 Falon
-Learn and integrate the YouTube and They Said So quotes APIs
-Dynamically populate cards and content onto the topics page
-Show user progress on page and dynamically demonstrate which tasks have already been completed
-Determine sequence of logic for completing task and preventing users for readdressing same tasks
-Integrate content population logic with the user interface
+1. Learn and integrate the YouTube and They Said So quotes APIs
+2. Dynamically populate cards and content onto the topics page
+3. Show user progress on page and dynamically demonstrate which tasks have already been completed
+4. Determine sequence of logic for completing task and preventing users for readdressing same tasks
+5. Integrate content population logic with the user interface
 
 ![alt-text](home-page/images/image4.png)
 
