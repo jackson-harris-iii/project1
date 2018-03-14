@@ -2,7 +2,8 @@
 	background: url(images/neon.jpg) no-repeat bottom center scroll;
 	background-size: 100% 100%;
 	border-right: 50px solid #ffc107;
-
+	border-left: 50px solid #ffc107;
+							
 }
 
 .brand-heading{
@@ -17,20 +18,22 @@
 
 #headerText {
 	border: 5px solid #5f93af;
+	background-color: #001a4d;
 
 }
 
 #about{
 	padding-top: 100px;
 	padding-bottom: 100px;
-	background-color: #5f93af;
+	background-color: #001a4d;
 	border-right: 50px solid #ffc107;
+	border-left: 50px solid #ffc107;
 
 }
 
 #team{
-	border-top: 5px solid #ffc107;
-	border-bottom: 5px solid #ffc107;
+	border-top: 5px solid #5f93af;
+	border-bottom: 5px solid #5f93af;
 	font-size: 45px;
 	color: white;
 	text-shadow:
@@ -38,6 +41,10 @@
 		2px -2px 0 black,
 		-2px 2px 0 black,
 		2px 2px 0 black;
+}
+
+.icons {
+	color: #5f93af;
 }
 
 #team2{
@@ -53,8 +60,9 @@
 	background: url(images/phone-wood-logo.jpg);
 	background-size: 100% 100%;
 	border-bottom: 10px solid #ffc107;
-	border-top: 10px solid #ffc107;
+	/*border-top: 10px solid #ffc107;*/
 	border-right: 50px solid #ffc107;
+	border-left: 50px solid #ffc107;
 }
 
 #contact{
@@ -64,8 +72,8 @@
 
 #Subscribe{
 	margin-left: 35%;
-	border-top: 5px solid #5f93af;
-	border-bottom: 5px solid #5f93af;
+	border-top: 5px solid #001a4d;
+	border-bottom: 5px solid #001a4d;
 	font-size: 60px;
 	text-shadow:
 		-2px -2px 0 black,
@@ -75,12 +83,14 @@
 }
 
 #Copyright{
-	font-size: 22px;
+	font-size: 16px;
 	color: white;
 	background-color: black;
 	height: 50px;
+	margin-bottom: 0px;
 	padding-bottom: 0px;
-	border-right: 30px solid #ffc107
+	border-right: 30px solid #ffc107;
+	border-left: 30px solid #ffc107;
 }
 
 .network-name{
@@ -97,7 +107,7 @@
 }
 
 #buttonColor{
-	background-color: #5f93af;
+	background-color: #001a4d;
 	color: black;
 }
 
@@ -111,6 +121,6 @@
 	font-family: neon1;
 }
 
-#mainNav {
-
+body {
+	color: #ffc107;
 }
