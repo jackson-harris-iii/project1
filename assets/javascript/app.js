@@ -12,6 +12,8 @@ console.log('hello')
 	firebase.initializeApp(config);
 	var database = firebase.database()
 
+	var userID = 'productionUser'
+
 	function updateUserProgress() {
 		
 		//creates curent topic variable
@@ -20,8 +22,6 @@ console.log('hello')
 		
 		//creates current catagory variable	
 		var currentCatagory = currentTopic.slice(0, -1)
-
-		var userID = 'productionUser'
 
 		//update firebase with user progress
 		database.ref('users/' + userID + '/'+ currentCatagory + '/' + currentTopic).update({
@@ -46,9 +46,36 @@ console.log('hello')
 	}
 
 	function getUserHistory() {
+		
+		//id of selected catagory
 		var currentbutton = this.id
+		
+		//current selected catagory
 		var currentCatagory = currentbutton.slice(0, -8)
+		
+		//gets current user
+		var userIs = userID
 		console.log(currentCatagory)
+
+		var ref = database.ref('users/' + userID + '/' + currentCatagory );
+		ref.once('value').then(function (snapshot) {
+			snapshot.forEach(function (childSnapshot) {
+				
+				var childKey = childSnapshot.key;
+				console.log(childKey)
+				var completedTopic = childKey
+
+				$("body").find(`#${completedTopic}`).addClass("opacity");
+
+				var numberOfOpacityButtons = $("body").find(".topicButton.opacity").length;
+
+				var percentage = (numberOfOpacityButtons / 4) * 100;
+
+				$("body").find(".progress-bar").css("width", percentage + "%");
+
+			})	
+			
+		})
 	}
 
 	$('body').on('click', '.completeBtn', updateUserProgress)
