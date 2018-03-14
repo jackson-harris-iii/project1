@@ -18,17 +18,24 @@
     <link rel="stylesheet" href="topicstyle.css">
 
 
+
+
 </head>
 
 <body>
-   <div><h1 class="font">"LIFE ISNT ABOUT SPECTATING, ITS ABOUT PARTICIPATING.."</h1></div>    
+   <div><h1 class="font">"LIFE ISNT ABOUT SPECTATING, ITS ABOUT PARTICIPATING.."</h1>
+        <h3 id="instructions">Pick A Category To Begin </h3>
+        <div id="counter">Point Cointer</div>
+   </div> 
+
+    
 
    <div class="row">
     
         <div class="col-md-3"></div>
         <div class="col-md-6" style="padding-top: 5%; padding-bottom: 5%;">
             <div class="btn-group">
-                <button id="button5" class=" btn-lg dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="width: 610px;">
+                <button id="button5" class="btn btn-lg dropdown-toggle fonts" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="width: 610px;">
                     CATEGORIES
                 </button>
                 <div class="dropdown-menu" id="dropdown" style="width: 610px; ">
@@ -52,13 +59,14 @@
 
 <div class="container d-flex justify-content-center" id="individualTopic">
     <div class="card">
-        <div class="card-header">
+        <!-- <div>
             <h1 class="Header">Current Topic</h1>
-        </div>
-        <div class="row">
+        </div> -->
+        <div class="row" id="popup">
 
             <div class="col-lg-12">
-                <h3 id="youtubeDIV">Video of the Day</h3>
+                <h1 class="Header">Current Topic</h1>
+                <h3 id="youtubeDIV">Video of the Day:</h3>
                 <div class="youtubeDIV"></div>
             </div>
 
@@ -67,11 +75,11 @@
                 <div class="quoteDIV"></div>
             </div>
             <div class="col-lg-12">
-                <h3 id="challengeDIV">Challenge</h3>
+                <h3 id="challengeDIV">Challenge:</h3>
                 <div class="challengeDIV"></div>
             </div>
             <div id="back" class="col-lg-12">
-                <button class="completeBtn" type="submit">Completed</button>
+                <button class="btn completeBtn" type="submit">Completed</button>
             </div>
         </div>
     </div>

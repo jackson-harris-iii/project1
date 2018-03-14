@@ -177,11 +177,11 @@ $("#dropdown #changeDropdown").on("click", function(){
 
 	for (var i=0; i < idChange.length; i++) {
 
-		$("#allTopics #topicsRow").append("<div class='col-md-3'><div class='card card-cascade narrower'><div class='view overlay'><a><div class='mask rgba-white-slight'></div></a></div><div class='card-body'><h5 class='pink-text'>" + titleChange[i] + "</h5><h4 class='card-title'>1</h4><p class='card-text'>" + summaryChange[i] + "</p><a class='btn btn-unique topicButton' id=" + idChange[i] + ">Button</a></div></div>");
+		$("#allTopics #topicsRow").append("<div class='col-md-3'><div id='cardstyle' class='card card-cascade narrower'><div class='view overlay'><a><div class='mask rgba-white-slight'></div></a></div><div class='card-body'><h4 class='white-text' id='underline'>" + titleChange[i] + "</h4><h4 class='card-title'></h4><p  class='white-text'>" + summaryChange[i] + "</p><a class='btn topicButton' id=" + idChange[i] + ">Button</a></div></div>");
 
 	}
 
-	$("#allTopics #topicsRow").append("<div class='col-md-12'><div class='progress'><div id='changeBar' class='progress-bar progress-bar-striped progress-bar-animated' role='progressbar' aria-valuenow='75' aria-valuemin='0' aria-valuemax='100'></div></div></div>");
+	$("#allTopics #topicsRow").append("<div class='col-md-12'><div><h2 id='progress'>Progress:</h2></div><div class='progress'><div id='changeBar' class='progress-bar progress-bar-striped progress-bar-animated' role='progressbar' aria-valuenow='75' aria-valuemin='0' aria-valuemax='100'></div></div></div>");
 
 });
 
@@ -194,11 +194,11 @@ $("#dropdown #embarrDropdown").on("click", function(){
 
 	for (var i=0; i < idChange.length; i++) {
 
-		$("#allTopics #topicsRow").append("<div class='col-md-3'><div class='card card-cascade narrower'><div class='view overlay'><a><div class='mask rgba-white-slight'></div></a></div><div class='card-body'><h5 class='pink-text'>" + titleChange[i] + "</h5><h4 class='card-title'>1</h4><p class='card-text'>" + summaryChange[i] + "</p><a class='btn btn-unique topicButton' id=" + idChange[i] + ">Button</a></div></div>");
+		$("#allTopics #topicsRow").append("<div class='col-md-3'><div id='cardstyle' class='card card-cascade narrower'><div class='view overlay'><a><div class='mask rgba-white-slight'></div></a></div><div class='card-body'><h4 class='white-text'>" + titleChange[i] + "</h4><h4 class='card-title'></h4><p class='white-text'>" + summaryChange[i] + "</p><a class='btn topicButton' id=" + idChange[i] + ">Button</a></div></div>");
 
 	}
 
-	$("#allTopics #topicsRow").append("<div class='col-md-12'><div class='progress'><div id='embarrBar' class='progress-bar progress-bar-striped progress-bar-animated' role='progressbar' aria-valuenow='75' aria-valuemin='0' aria-valuemax='100'></div></div></div>");
+	$("#allTopics #topicsRow").append("<div class='col-md-12'><div><h2 id='progress'>Progress:</h2></div><div class='progress'><div id='embarrBar' class='progress-bar progress-bar-striped progress-bar-animated' role='progressbar' aria-valuenow='75' aria-valuemin='0' aria-valuemax='100'></div></div></div>");
 });
 
 $("#dropdown #failDropdown").on("click", function(){
@@ -210,10 +210,10 @@ $("#dropdown #failDropdown").on("click", function(){
 
 	for (var i=0; i < idChange.length; i++) {
 
-		$("#allTopics #topicsRow").append("<div class='col-md-3'><div class='card card-cascade narrower'><div class='view overlay'><a><div class='mask rgba-white-slight'></div></a></div><div class='card-body'><h5 class='pink-text'>" + titleChange[i] + "</h5><h4 class='card-title'>1</h4><p class='card-text'>" + summaryChange[i] + "</p><a class='btn btn-unique topicButton' id=" + idChange[i] + ">Button</a></div></div>");
+		$("#allTopics #topicsRow").append("<div class='col-md-3'><div id='cardstyle' class='card card-cascade narrower'><div class='view overlay'><a><div class='mask rgba-white-slight'></div></a></div><div class='card-body'><h4 class='white-text'>" + titleChange[i] + "</h4><h4 class='card-title'></h4><p class='white-text'>" + summaryChange[i] + "</p><a class='btn topicButton' id=" + idChange[i] + ">Button</a></div></div>");
 
 	}
-	$("#allTopics #topicsRow").append("<div class='col-md-12'><div class='progress'><div id='failBar' class='progress-bar progress-bar-striped progress-bar-animated' role='progressbar' aria-valuenow='75' aria-valuemin='0' aria-valuemax='100'></div></div></div>");
+	$("#allTopics #topicsRow").append("<div class='col-md-12'><div><h2 id='progress'>Progress:</h2></div><div class='progress'><div id='failBar' class='progress-bar progress-bar-striped progress-bar-animated' role='progressbar' aria-valuenow='75' aria-valuemin='0' aria-valuemax='100'></div></div></div>");
 });
 
 $("#dropdown #rejectDropdown").on("click", function(){
@@ -225,10 +225,10 @@ $("#dropdown #rejectDropdown").on("click", function(){
 
 	for (var i=0; i < idChange.length; i++) {
 
-		$("#allTopics #topicsRow").append("<div class='col-md-3'><div class='card card-cascade narrower'><div class='view overlay'><a><div class='mask rgba-white-slight'></div></a></div><div class='card-body'><h5 class='pink-text'>" + titleChange[i] + "</h5><h4 class='card-title'>1</h4><p class='card-text'>" + summaryChange[i] + "</p><a class='btn btn-unique topicButton' id=" + idChange[i] + ">Button</a></div></div>");
+		$("#allTopics #topicsRow").append("<div class='col-md-3'><div id='cardstyle' class='card card-cascade narrower'><div class='view overlay'><a><div class='mask rgba-white-slight'></div></a></div><div class='card-body'><h4 class='white-text'>" + titleChange[i] + "</h4><h4 class='card-title'></h4><p class='white-text'>" + summaryChange[i] + "</p><a class='btn topicButton' id=" + idChange[i] + ">Button</a></div></div>");
 
 	}
-	$("#allTopics #topicsRow").append("<div class='col-md-12'><div class='progress'><div id='rejectBar' class='progress-bar progress-bar-striped progress-bar-animated' role='progressbar' aria-valuenow='75' aria-valuemin='0' aria-valuemax='100'></div></div></div>");
+	$("#allTopics #topicsRow").append("<div class='col-md-12'><div><h2 id='progress'>Progress:</h2></div><div class='progress'><div id='rejectBar' class='progress-bar progress-bar-striped progress-bar-animated' role='progressbar' aria-valuenow='75' aria-valuemin='0' aria-valuemax='100'></div></div></div>");
 });
 
 });
