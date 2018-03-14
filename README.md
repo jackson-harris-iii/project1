@@ -31,21 +31,21 @@ Tanner and Kyle worked on the user interface - from conception and planning to c
 4. Templating the topics page
 5. Content to explain the application
 
-### Kyle
+### Kyle:
 1. Templating the marketing page
 2. Content to explain the application
 3. Styling and logic for the topics page
 4. Match the styling and flow of the original marketing design and duplicate onto the topics page
 5. Reactive styling based on functionality requirements
 
-### Jackson
+### Jackson:
 1. Learn and integrate Google and Facebook log-in functionality
 2. Integrate log-ins with the user interface
 3. Create persistence through Firebase for the progress users have made
 4. Determine which variables to save to Firebase and connect this with user profile
 5. Integrate persistence logic into the visual counterpart
 
-### Falon
+### Falon:
 1. Learn and integrate the YouTube and They Said So quotes APIs
 2. Dynamically populate cards and content onto the topics page
 3. Show user progress on page and dynamically demonstrate which tasks have already been completed
