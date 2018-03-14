@@ -1,5 +1,86 @@
 $(document).ready(function () {
+console.log('hello')
+	// Initialize Firebase
+	var config = {
+		apiKey: "AIzaSyCKWMCNkLOish_Bv8jc9ByMO3mVTGnzdSs",
+		authDomain: "level-up-8ab46.firebaseapp.com",
+		databaseURL: "https://level-up-8ab46.firebaseio.com",
+		projectId: "level-up-8ab46",
+		storageBucket: "level-up-8ab46.appspot.com",
+		messagingSenderId: "959253299439"
+	};
+	firebase.initializeApp(config);
+	var database = firebase.database()
 
+	var userID = 'productionUser'
+
+	function updateUserProgress() {
+		
+		//creates curent topic variable
+		var currentTopic = this.attributes['data-selected-id'].nodeValue
+			console.log(currentTopic)
+		
+		//creates current catagory variable	
+		var currentCatagory = currentTopic.slice(0, -1)
+
+		//update firebase with user progress
+		database.ref('users/' + userID + '/'+ currentCatagory + '/' + currentTopic).update({
+			'status': 'complete',
+		});
+
+		//gets users current total progress
+		var oldTotal = null
+		var newTotal = null
+		var ref = database.ref('users/' + userID + '/totalprogress');
+		ref.once('value').then(function (snapshot) {
+
+			console.log(snapshot.child)
+			oldTotal = snapshot.child('total').val();
+			console.log(oldTotal)
+			var newTotal = oldTotal + 6.25
+			console.log(newTotal)
+			database.ref('users/' + userID + '/totalprogress').update({
+				'total': newTotal
+			})
+		})
+	}
+
+	function getUserHistory() {
+		
+		//id of selected catagory
+		var currentbutton = this.id
+		
+		//current selected catagory
+		var currentCatagory = currentbutton.slice(0, -8)
+		
+		//gets current user
+		var userIs = userID
+		console.log(currentCatagory)
+
+		var ref = database.ref('users/' + userID + '/' + currentCatagory );
+		ref.once('value').then(function (snapshot) {
+			snapshot.forEach(function (childSnapshot) {
+				
+				var childKey = childSnapshot.key;
+				console.log(childKey)
+				var completedTopic = childKey
+
+				$("body").find(`#${completedTopic}`).addClass("opacity");
+
+				var numberOfOpacityButtons = $("body").find(".topicButton.opacity").length;
+
+				var percentage = (numberOfOpacityButtons / 4) * 100;
+
+				$("body").find(".progress-bar").css("width", percentage + "%");
+
+			})	
+			
+		})
+	}
+
+	$('body').on('click', '.completeBtn', updateUserProgress)
+	$('body').on('click', '.dropdown-item', getUserHistory)
+//......bgein topics page management.......
 var topicsObject = {
 	change1 : {
 		youtubeID : "GBz-pwTyxtA",
