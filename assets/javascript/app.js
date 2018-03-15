@@ -14,6 +14,7 @@ console.log('hello')
 	// initialize firebase database
 	var database = firebase.database()
 
+
 	//checks to see if there is a user currently signed in on page load
 	firebase.auth().onAuthStateChanged(function (user) {
 			if (user) {
@@ -47,20 +48,28 @@ console.log('hello')
 		}
 	}
 
+
 	//......begin homepage login management.......
 
-	//allows user to sign up with an email address
 	function signUpUser() {
 	
 	var email =	$('#registerEmail').val().trim()
 	var password = $('#registerPassword').val().trim()
 
+
 	//registers user using google auth	
+
+	
+	console.log(email)	
+	console.log(password)	
+	
+
 		firebase.auth().createUserWithEmailAndPassword(email, password).catch(function (error) {
 			// Handle Errors here.
 			var errorCode = error.code;
 			var errorMessage = error.message;
 			// ...
+
 		})	
 	}
 
@@ -90,8 +99,22 @@ console.log('hello')
 			var token = result.credential.accessToken;
 			// The signed-in user info.
 			user = result.user;
-		})
+
+		});	
+
+		loadTopicsPage()
 	}
+
+	function loadTopicsPage() {
+		window.location.href = 'topics.html'
+
+		$(document).ready(function () {
+
+			//get User data
+
+		})
+	}	
+
 
 	//allows user to log in using facebook
 	function facebookLogin() {
@@ -135,13 +158,15 @@ console.log('hello')
 
 	//trigger for existing user email login
 	$('body').on('click', '#logInButton', signInEmail)
+
+	$('body').on('click', '#signUpButton', signUpUser)
+
 	
-
-
 	//......begin topics page firebase management.......
 	
 	// demo user, global userID variable
 	var userID = 'productionUser'
+
 
 	//if a real user is present this captures that user and stores them as the current global user
 	function setUserID() {
@@ -150,6 +175,7 @@ console.log('hello')
 	} 
 
 	//this function manages user progess
+
 	function updateUserProgress() {
 		
 		//creates curent topic variable
@@ -170,15 +196,17 @@ console.log('hello')
 		var ref = database.ref('users/' + userID + '/totalprogress');
 		ref.once('value').then(function (snapshot) {
 
+			console.log(snapshot.child)
 			oldTotal = snapshot.child('total').val();
-
+			console.log(oldTotal)
 			var newTotal = oldTotal + 6.25
-
+			console.log(newTotal)
 			database.ref('users/' + userID + '/totalprogress').update({
 				'total': newTotal
 			})
 		})
 	}
+
 
 	//updates user current total level
 	function scoreCount() {	
@@ -207,6 +235,7 @@ console.log('hello')
 	}
 
 	//retrieves users progroess from the database
+
 	function getUserHistory() {
 		
 		//id of selected catagory
@@ -245,8 +274,10 @@ console.log('hello')
 	//triggers retrival ot user in from database for the given catagory
 	$('body').on('click', '.dropdown-item', getUserHistory)
 
+
 	//triggers score updates and sets userID to to currently logged in user 
 	$('body').on('click', '#button5' , setUserID)
+
 
 
 
