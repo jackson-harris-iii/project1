@@ -235,8 +235,11 @@ console.log('hello')
 
 	//displays users current level
 	function displayCurrentLevel(level) {
-		if (level > 0 ){
-		$('#counter').html(level)
+		if (level == 100 ) {
+			$('#counter').html("You're 100!")
+		}
+		else if (level > 0 ){
+		$('#counter').html('level'+ level)
 		}
 		//hides user level if their level is 0
 		else {
