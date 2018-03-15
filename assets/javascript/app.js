@@ -70,17 +70,14 @@ console.log('hello')
 		
 	}
 
-	function createUserInFirebase() {
-		
-	}
-
+	//allows users to sign in with existing account
 	function signInEmail() {
+
+		//grabs values entered into sign modal
 		var email = $('#logInEmail').val().trim()
 		var password = $('#logInPassword').val().trim()
 
-		console.log(email)
-		console.log(password)
-
+		//verifies if user is an existing user
 		firebase.auth().signInWithEmailAndPassword(email, password).catch(function (error) {
 			// Handle Errors here.
 			var errorCode = error.code;
@@ -102,17 +99,8 @@ console.log('hello')
 			var token = result.credential.accessToken;
 			// The signed-in user info.
 			user = result.user;
-			console.log(user)
 
-			console.log(user.uid)
-
-			// stores user object in session storage
-			sessionStorage.setItem('user', JSON.stringify(user));
-
-
-
-		}).then(function (){
-			loadTopicsPage() })
+		})
 	}
 
 	function loadTopicsPage() {
