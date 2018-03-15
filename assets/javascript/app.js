@@ -10,8 +10,45 @@ console.log('hello')
 		messagingSenderId: "959253299439"
 	};
 	firebase.initializeApp(config);
+	
+	// initialize firebase database
 	var database = firebase.database()
+	
 
+	//......begin homepage login management.......
+
+	function signUpUser() {
+	
+	var email =	$('#registerEmail').val().trim()
+	var password = $('#registerPassword').val().trim()
+	
+	console.log(email)	
+	console.log(password)	
+	
+		firebase.auth().createUserWithEmailAndPassword(email, password).catch(function (error) {
+			// Handle Errors here.
+			var errorCode = error.code;
+			var errorMessage = error.message;
+			// ...
+		});	
+
+		loadTopicsPage()
+	}
+
+	function loadTopicsPage() {
+		window.location.href = 'topics.html'
+
+		$(document).ready(function () {
+
+			//get User data
+		})
+	}	
+
+	$('body').on('click', '#signUpButton', signUpUser)
+	
+	//......begin topics page firebase management.......
+	
+	// demo user
 	var userID = 'productionUser'
 
 	function updateUserProgress() {
@@ -80,7 +117,10 @@ console.log('hello')
 
 	$('body').on('click', '.completeBtn', updateUserProgress)
 	$('body').on('click', '.dropdown-item', getUserHistory)
-//......bgein topics page management.......
+
+
+	//......begin topics page management.......
+
 var topicsObject = {
 	change1 : {
 		youtubeID : "GBz-pwTyxtA",
