@@ -30,3 +30,44 @@
 [info] i  hosting: Serving hosting files from: project1
 [info] ✔  hosting: Local server: http://localhost:5000
 
+[debug] [2018-03-15T18:30:04.482Z] ----------------------------------------------------------------------
+[debug] [2018-03-15T18:30:04.484Z] Command:       /usr/local/Cellar/node/8.9.1/bin/node /usr/local/bin/firebase serve
+[debug] [2018-03-15T18:30:04.484Z] CLI Version:   3.17.6
+[debug] [2018-03-15T18:30:04.484Z] Platform:      darwin
+[debug] [2018-03-15T18:30:04.484Z] Node Version:  v8.9.1
+[debug] [2018-03-15T18:30:04.485Z] Time:          Thu Mar 15 2018 11:30:04 GMT-0700 (PDT)
+[debug] [2018-03-15T18:30:04.485Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2018-03-15T18:30:04.501Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2018-03-15T18:30:04.501Z] > authorizing via signed-in user
+[debug] [2018-03-15T18:30:04.503Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2018-03-15T18:30:04.503Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ { refresh_token: '1/xkB2wtrPcg9PMDLYMxzUdq9MpQwzh7i0sNltI8YaFSA',
+  client_id: '563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com',
+  client_secret: 'j9iVZfS8kkCEFUPaAeJV0sAi',
+  grant_type: 'refresh_token',
+  scope: 'email https://www.googleapis.com/auth/cloud-platform https://www.googleapis.com/auth/cloudplatformprojects.readonly https://www.googleapis.com/auth/firebase openid' } 
+ Thu Mar 15 2018 11:30:04 GMT-0700 (PDT)
+[debug] [2018-03-15T18:30:04.896Z] <<< HTTP RESPONSE 200
+[debug] [2018-03-15T18:30:04.912Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/level-up-8ab46  
+  
+ Thu Mar 15 2018 11:30:04 GMT-0700 (PDT)
+[debug] [2018-03-15T18:30:05.461Z] <<< HTTP RESPONSE 200
+[debug] [2018-03-15T18:30:05.462Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/level-up-8ab46/tokens  
+  
+ Thu Mar 15 2018 11:30:05 GMT-0700 (PDT)
+[debug] [2018-03-15T18:30:06.014Z] <<< HTTP RESPONSE 200
+[debug] [2018-03-15T18:30:06.015Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/level-up-8ab46  
+  
+ Thu Mar 15 2018 11:30:06 GMT-0700 (PDT)
+[debug] [2018-03-15T18:30:06.354Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from '/Users/Home/Bootcamp_Stuff/Projects/project1'...
+[info] 
+[debug] [2018-03-15T18:30:06.357Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/959253299439/clients/_:getWebAppConfig  
+  
+ Thu Mar 15 2018 11:30:06 GMT-0700 (PDT)
+[debug] [2018-03-15T18:30:06.800Z] <<< HTTP RESPONSE 200
+[info] i  hosting: Serving hosting files from: project1
+[info] ✔  hosting: Local server: http://localhost:5000
+
