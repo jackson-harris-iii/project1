@@ -1,6 +1,7 @@
 package-lock.json
 firebase.json
-database.rules.json.firebaserc
 project1
 node_modules
 functions
+.firebaserc
+database.rules.json
