@@ -116,6 +116,8 @@ console.log('hello')
 		});
 	}
 
+	//logout feature
+
 	//loads topics page once a user is logged in
 	function loadTopicsPage() {
 		window.location.href = 'topics.html'
