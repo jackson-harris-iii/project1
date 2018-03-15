@@ -13,7 +13,41 @@ console.log('hello')
 	
 	// initialize firebase database
 	var database = firebase.database()
-	
+
+
+	//checks to see if there is a user currently signed in on page load
+	firebase.auth().onAuthStateChanged(function (user) {
+			if (user) {
+				// User is signed in.
+				var displayName = user.displayName;
+				var email = user.email;
+				var emailVerified = user.emailVerified;
+				var photoURL = user.photoURL;
+				var isAnonymous = user.isAnonymous;
+				var uid = user.uid;
+				var providerData = user.providerData;
+				
+				//looks to see that page the user is currently on
+				pagecheck()
+				// ...
+			} else {
+				// User is signed out.
+				// ...
+			}
+		});
+
+	function pagecheck() {
+		//checks current page
+		var currentPage = $(document).find("title").text();
+
+		if (currentPage !== 'Topics') {
+			loadTopicsPage()
+		}
+		else{
+			//..
+		}
+	}
+
 
 	//......begin homepage login management.......
 
@@ -21,15 +55,51 @@ console.log('hello')
 	
 	var email =	$('#registerEmail').val().trim()
 	var password = $('#registerPassword').val().trim()
+
+
+	//registers user using google auth	
+
 	
 	console.log(email)	
 	console.log(password)	
 	
+
 		firebase.auth().createUserWithEmailAndPassword(email, password).catch(function (error) {
 			// Handle Errors here.
 			var errorCode = error.code;
 			var errorMessage = error.message;
 			// ...
+
+		})	
+	}
+
+	//allows users to sign in with existing account
+	function signInEmail() {
+
+		//grabs values entered into sign modal
+		var email = $('#logInEmail').val().trim()
+		var password = $('#logInPassword').val().trim()
+
+		//verifies if user is an existing user
+		firebase.auth().signInWithEmailAndPassword(email, password).catch(function (error) {
+			// Handle Errors here.
+			var errorCode = error.code;
+			var errorMessage = error.message;
+			// ...
+		})
+	}
+
+	//allows user to log in using a google account
+	function googleLogin() {
+
+		var provider = new firebase.auth.GoogleAuthProvider();
+
+		firebase.auth().signInWithPopup(provider).then(function (result) {
+			// This gives you a Google Access Token. You can use it to access the Google API.
+			var token = result.credential.accessToken;
+			// The signed-in user info.
+			user = result.user;
+
 		});	
 
 		loadTopicsPage()
@@ -41,15 +111,70 @@ console.log('hello')
 		$(document).ready(function () {
 
 			//get User data
+
 		})
 	}	
 
+
+	//allows user to log in using facebook
+	function facebookLogin() {
+
+		var provider = new firebase.auth.FacebookAuthProvider();
+
+		firebase.auth().signInWithPopup(provider).then(function (result) {
+			// This gives you a Facebook Access Token. You can use it to access the Facebook API.
+			var token = result.credential.accessToken;
+			// The signed-in user info.
+			 user = result.user;
+			// ...
+		}).catch(function (error) {
+			// Handle Errors here.
+			var errorCode = error.code;
+			var errorMessage = error.message;
+			// The email of the user's account used.
+			var email = error.email;
+			// The firebase.auth.AuthCredential type that was used.
+			var credential = error.credential;
+			// ...
+		});
+	}
+
+	//logout feature
+
+	//loads topics page once a user is logged in
+	function loadTopicsPage() {
+		window.location.href = 'topics.html'
+		setUserID()
+	}
+	
+	//trigger for sign up with email function
 	$('body').on('click', '#signUpButton', signUpUser)
+
+	//trigger to login with google
+	$('body').on('click', '#googleBtn', googleLogin)
+
+	//trigger to login with facebook
+	$('body').on('click', '#facebookBtn', facebookLogin)
+
+	//trigger for existing user email login
+	$('body').on('click', '#logInButton', signInEmail)
+
+	$('body').on('click', '#signUpButton', signUpUser)
+
 	
 	//......begin topics page firebase management.......
 	
-	// demo user
+	// demo user, global userID variable
 	var userID = 'productionUser'
+
+
+	//if a real user is present this captures that user and stores them as the current global user
+	function setUserID() {
+		userID = firebase.auth().currentUser.uid;	
+		scoreCount()
+	} 
+
+	//this function manages user progess
 
 	function updateUserProgress() {
 		
@@ -82,6 +207,35 @@ console.log('hello')
 		})
 	}
 
+
+	//updates user current total level
+	function scoreCount() {	
+
+	var totalCountRef = firebase.database().ref('users/' + userID + '/totalprogress')
+	totalCountRef.on('value', function(snapshot){
+		
+		var currentLevel = snapshot.val()
+		
+		var level = currentLevel.total
+
+		displayCurrentLevel(level)
+	})
+
+}
+
+	//displays users current level
+	function displayCurrentLevel(level) {
+		if (level > 0 ){
+		$('#counter').html(level)
+		}
+		//hides user level if their level is 0
+		else {
+			$('#counter').hide()
+		}
+	}
+
+	//retrieves users progroess from the database
+
 	function getUserHistory() {
 		
 		//id of selected catagory
@@ -92,7 +246,6 @@ console.log('hello')
 		
 		//gets current user
 		var userIs = userID
-		console.log(currentCatagory)
 
 		var ref = database.ref('users/' + userID + '/' + currentCatagory );
 		ref.once('value').then(function (snapshot) {
@@ -115,8 +268,17 @@ console.log('hello')
 		})
 	}
 
+	//updates the user progress when they compete a task
 	$('body').on('click', '.completeBtn', updateUserProgress)
+	
+	//triggers retrival ot user in from database for the given catagory
 	$('body').on('click', '.dropdown-item', getUserHistory)
+
+
+	//triggers score updates and sets userID to to currently logged in user 
+	$('body').on('click', '#button5' , setUserID)
+
+
 
 
 	//......begin topics page management.......
