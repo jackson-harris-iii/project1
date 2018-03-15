@@ -35,6 +35,7 @@ console.log('hello')
 				console.log('no user')
 			}
 		});
+
 	function pagecheck() {
 		//checks current page
 		var currentPage = $(document).find("title").text();
@@ -49,6 +50,7 @@ console.log('hello')
 
 	//......begin homepage login management.......
 
+	//allows user to sign up with an email address
 	function signUpUser() {
 	
 	var email =	$('#registerEmail').val().trim()
@@ -89,6 +91,7 @@ console.log('hello')
 
 	}
 
+	//allows user to log in using a google account
 	function googleLogin() {
 		console.log('google-login')
 
@@ -103,17 +106,18 @@ console.log('hello')
 		})
 	}
 
+	//loads topics page once a user is logged in
 	function loadTopicsPage() {
 		window.location.href = 'topics.html'
 	}
 	
-
+	//trigger for sign up with email function
 	$('body').on('click', '#signUpButton', signUpUser)
 
-	//allows users to use google to login/create an account
+	//trigger to login with google
 	$('body').on('click', '#googleBtn', googleLogin)
 
-	//allows users to use their email on record to login
+	//trigger for existing user email login
 	$('body').on('click', '#logInButton', signInEmail)
 	
 
@@ -122,11 +126,14 @@ console.log('hello')
 	
 	// demo user
 	var userID = 'productionUser'
+
+	//if a real user is present this captures that user and stores them as the current global user
 	function setUserID() {
 		userID = firebase.auth().currentUser.uid;	
 		console.log(userID)
 	} 
 
+	//this function manages user progess
 	function updateUserProgress() {
 		
 		//creates curent topic variable
@@ -147,15 +154,34 @@ console.log('hello')
 		var ref = database.ref('users/' + userID + '/totalprogress');
 		ref.once('value').then(function (snapshot) {
 
-			console.log(snapshot.child)
 			oldTotal = snapshot.child('total').val();
-			console.log(oldTotal)
+
 			var newTotal = oldTotal + 6.25
-			console.log(newTotal)
+
 			database.ref('users/' + userID + '/totalprogress').update({
 				'total': newTotal
 			})
 		})
+	}
+
+	//updates user current total level
+	var totalCountRef = firebase.database().ref('users/' + userID + '/totalprogress')
+	totalCountRef.on('value', function(snapshot){
+		var currentLevel = snapshot.val()
+		
+		var level = currentLevel.total
+
+		displayCurrentLevel(level)
+	})
+
+	//displays users current level
+	function displayCurrentLevel(level) {
+		if (level > 0 ){
+		$('#counter').html(level)
+		}
+		else {
+			$('#counter').hide()
+		}
 	}
 
 	function getUserHistory() {
