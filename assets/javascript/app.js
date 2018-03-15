@@ -30,8 +30,19 @@ console.log('hello')
 			var errorCode = error.code;
 			var errorMessage = error.message;
 			// ...
-		});
+		});	
+
+		loadTopicsPage()
 	}
+
+	function loadTopicsPage() {
+		window.location.href = 'topics.html'
+
+		$(document).ready(function () {
+
+			//get User data
+		})
+	}	
 
 	$('body').on('click', '#signUpButton', signUpUser)
 	
