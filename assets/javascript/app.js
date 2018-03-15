@@ -134,6 +134,10 @@ console.log('hello')
 	
 	// demo user
 	var userID = 'productionUser'
+	function setUserID() {
+		userID = firebase.auth().currentUser.uid;	
+		console.log(userID)
+	} 
 
 	function updateUserProgress() {
 		
@@ -202,6 +206,7 @@ console.log('hello')
 
 	$('body').on('click', '.completeBtn', updateUserProgress)
 	$('body').on('click', '.dropdown-item', getUserHistory)
+	$('body').on('click', '#button5' , setUserID)
 
 
 
