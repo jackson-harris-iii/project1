@@ -17,7 +17,6 @@ console.log('hello')
 	//checks to see if there is a user currently signed in on page load
 	firebase.auth().onAuthStateChanged(function (user) {
 			if (user) {
-				console.log(user)
 				// User is signed in.
 				var displayName = user.displayName;
 				var email = user.email;
@@ -26,13 +25,13 @@ console.log('hello')
 				var isAnonymous = user.isAnonymous;
 				var uid = user.uid;
 				var providerData = user.providerData;
-				console.log(user)
+				
+				//looks to see that page the user is currently on
 				pagecheck()
 				// ...
 			} else {
 				// User is signed out.
 				// ...
-				console.log('no user')
 			}
 		});
 
@@ -44,7 +43,7 @@ console.log('hello')
 			loadTopicsPage()
 		}
 		else{
-			console.log('you did it')
+			//..
 		}
 	}
 
@@ -56,20 +55,13 @@ console.log('hello')
 	var email =	$('#registerEmail').val().trim()
 	var password = $('#registerPassword').val().trim()
 
-	sessionStorage.setItem('user', email);
-	sessionStorage.setItem('password', password);
-	
-	console.log(email)	
-	console.log(password)	
-	
+	//registers user using google auth	
 		firebase.auth().createUserWithEmailAndPassword(email, password).catch(function (error) {
 			// Handle Errors here.
 			var errorCode = error.code;
 			var errorMessage = error.message;
 			// ...
-		})
-	
-		
+		})	
 	}
 
 	//allows users to sign in with existing account
@@ -86,9 +78,6 @@ console.log('hello')
 			var errorMessage = error.message;
 			// ...
 		})
-
-
-
 	}
 
 	//allows user to log in using a google account
@@ -109,6 +98,7 @@ console.log('hello')
 	//loads topics page once a user is logged in
 	function loadTopicsPage() {
 		window.location.href = 'topics.html'
+		setUserID()
 	}
 	
 	//trigger for sign up with email function
@@ -124,13 +114,13 @@ console.log('hello')
 
 	//......begin topics page firebase management.......
 	
-	// demo user
+	// demo user, global userID variable
 	var userID = 'productionUser'
 
 	//if a real user is present this captures that user and stores them as the current global user
 	function setUserID() {
 		userID = firebase.auth().currentUser.uid;	
-		console.log(userID)
+		scoreCount()
 	} 
 
 	//this function manages user progess
@@ -165,8 +155,11 @@ console.log('hello')
 	}
 
 	//updates user current total level
+	function scoreCount() {	
+
 	var totalCountRef = firebase.database().ref('users/' + userID + '/totalprogress')
 	totalCountRef.on('value', function(snapshot){
+		
 		var currentLevel = snapshot.val()
 		
 		var level = currentLevel.total
@@ -174,28 +167,30 @@ console.log('hello')
 		displayCurrentLevel(level)
 	})
 
+}
+
 	//displays users current level
 	function displayCurrentLevel(level) {
 		if (level > 0 ){
 		$('#counter').html(level)
 		}
+		//hides user level if their level is 0
 		else {
 			$('#counter').hide()
 		}
 	}
 
+	//retrieves users progroess from the database
 	function getUserHistory() {
 		
 		//id of selected catagory
 		var currentbutton = this.id
-		console.log(currentbutton)
 		
 		//current selected catagory
 		var currentCatagory = currentbutton.slice(0, -8)
 		
 		//gets current user
 		var userIs = userID
-		console.log(currentCatagory)
 
 		var ref = database.ref('users/' + userID + '/' + currentCatagory );
 		ref.once('value').then(function (snapshot) {
@@ -218,8 +213,13 @@ console.log('hello')
 		})
 	}
 
+	//updates the user progress when they compete a task
 	$('body').on('click', '.completeBtn', updateUserProgress)
+	
+	//triggers retrival ot user in from database for the given catagory
 	$('body').on('click', '.dropdown-item', getUserHistory)
+
+	//triggers score updates and sets userID to to currently logged in user 
 	$('body').on('click', '#button5' , setUserID)
 
 
