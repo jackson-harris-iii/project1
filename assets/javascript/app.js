@@ -59,10 +59,6 @@ console.log('hello')
 
 	//registers user using google auth	
 
-	
-	console.log(email)	
-	console.log(password)	
-	
 
 		firebase.auth().createUserWithEmailAndPassword(email, password).catch(function (error) {
 			// Handle Errors here.
@@ -140,11 +136,21 @@ console.log('hello')
 	}
 
 	//logout feature
+	function logOut() {
+		console.log('buttonhot')
+		firebase.auth().signOut().then(loadHomePage());
+	}
 
 	//loads topics page once a user is logged in
 	function loadTopicsPage() {
 		window.location.href = 'topics.html'
 		setUserID()
+	}
+
+	//loads home page once a user is logged out
+	function loadHomePage() {
+		window.location.href = 'index.html'
+		
 	}
 	
 	//trigger for sign up with email function
@@ -159,7 +165,11 @@ console.log('hello')
 	//trigger for existing user email login
 	$('body').on('click', '#logInButton', signInEmail)
 
+	//trigger for new user sign up function
 	$('body').on('click', '#signUpButton', signUpUser)
+
+	//trigger for log out function
+	$('body').on('click', '#logOutButton', logOut)
 
 	
 	//......begin topics page firebase management.......
