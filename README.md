@@ -1,12 +1,12 @@
 # Level UP
 
-![alt-text](images/image.png)
+![alt-text](assets/images/image.png)
 
 ## Description
 
 Our application offer users self-help videos, quotes, and challenges to help them conquer their fears. We focus on gamifying the process, to make self-improvement fun and interactive. 
 
-![alt-text](images/image2.png)
+![alt-text](assets/images/image2.png)
 
 ## Motivation
 
@@ -16,7 +16,7 @@ One of our classmates was interested in self-improvement and had seen applicatio
 
 Using JavaScript, jQuery, front-end styling, the YouTube and They Said So APIs, and Firebase, we allow users to target specific areas of self-improvement that they want to work on. 
 
-![alt-text](images/image3.png)
+![alt-text](assets/images/image3.png)
 
 ## Team Effort
 
@@ -52,7 +52,7 @@ Tanner and Kyle worked on the user interface - from conception and planning to c
 4. Determine sequence of logic for completing task and preventing users for readdressing same tasks
 5. Integrate content population logic with the user interface
 
-![alt-text](images/image4.png)
+![alt-text](assets/images/image4.png)
 
 ## Challenges
 
