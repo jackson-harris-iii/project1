@@ -3,5 +3,5 @@ firebase.json
 project1
 node_modules
 functions
-.firebaserc
-database.rules.json
+*.firebaserc
+*database.rules.json
