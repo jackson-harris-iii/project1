@@ -13,6 +13,26 @@ console.log('hello')
 	
 	// initialize firebase database
 	var database = firebase.database()
+
+	//checks to see if there is a user currently signed in on page load
+	firebase.auth().onAuthStateChanged(function (user) {
+			if (user) {
+				console.log(user)
+				// User is signed in.
+				var displayName = user.displayName;
+				var email = user.email;
+				var emailVerified = user.emailVerified;
+				var photoURL = user.photoURL;
+				var isAnonymous = user.isAnonymous;
+				var uid = user.uid;
+				var providerData = user.providerData;
+				console.log(user)
+				// ...
+			} else {
+				// User is signed out.
+				// ...
+			}
+		});
 	
 
 	//......begin homepage login management.......
@@ -21,6 +41,9 @@ console.log('hello')
 	
 	var email =	$('#registerEmail').val().trim()
 	var password = $('#registerPassword').val().trim()
+
+	sessionStorage.setItem('user', email);
+	sessionStorage.setItem('password', password);
 	
 	console.log(email)	
 	console.log(password)	
@@ -30,22 +53,66 @@ console.log('hello')
 			var errorCode = error.code;
 			var errorMessage = error.message;
 			// ...
-		});	
+		}).then(loadTopicsPage())
+	
+		
+	}
 
-		loadTopicsPage()
+	function createUserInFirebase() {
+		
+	}
+
+	function signInEmail() {
+		var email = $('#logInEmail').val().trim()
+		var password = $('#logInPassword').val().trim()
+
+		firebase.auth().signInWithEmailAndPassword(email, password).catch(function (error) {
+			// Handle Errors here.
+			var errorCode = error.code;
+			var errorMessage = error.message;
+			// ...
+		});
+
+	}
+
+	function googleLogin() {
+		console.log('google-login')
+
+		var provider = new firebase.auth.GoogleAuthProvider();
+
+		firebase.auth().signInWithPopup(provider).then(function (result) {
+			// This gives you a Google Access Token. You can use it to access the Google API.
+			var token = result.credential.accessToken;
+			// The signed-in user info.
+			user = result.user;
+			console.log(user)
+
+			console.log(user.uid)
+
+			// stores user object in session storage
+			sessionStorage.setItem('user', JSON.stringify(user));
+
+			addUser(user)
+
+
+		}).then( function () {
+			console.log(user)
+		}
+		);
 	}
 
 	function loadTopicsPage() {
 		window.location.href = 'topics.html'
-
-		$(document).ready(function () {
-
-			//get User data
-		})
-	}	
+	}
+	
 
 	$('body').on('click', '#signUpButton', signUpUser)
+
+	//allows users to use google to login/create an account
+	$('body').on('click', '#googleBtn', googleLogin)
 	
+
+
 	//......begin topics page firebase management.......
 	
 	// demo user
@@ -86,6 +153,7 @@ console.log('hello')
 		
 		//id of selected catagory
 		var currentbutton = this.id
+		console.log(currentbutton)
 		
 		//current selected catagory
 		var currentCatagory = currentbutton.slice(0, -8)
@@ -117,6 +185,7 @@ console.log('hello')
 
 	$('body').on('click', '.completeBtn', updateUserProgress)
 	$('body').on('click', '.dropdown-item', getUserHistory)
+
 
 
 	//......begin topics page management.......
