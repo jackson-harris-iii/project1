@@ -13,51 +13,14 @@ console.log('hello')
 	
 	// initialize firebase database
 	var database = firebase.database()
-
-	//checks to see if there is a user currently signed in on page load
-	firebase.auth().onAuthStateChanged(function (user) {
-			if (user) {
-				console.log(user)
-				// User is signed in.
-				var displayName = user.displayName;
-				var email = user.email;
-				var emailVerified = user.emailVerified;
-				var photoURL = user.photoURL;
-				var isAnonymous = user.isAnonymous;
-				var uid = user.uid;
-				var providerData = user.providerData;
-				console.log(user)
-				pagecheck()
-				// ...
-			} else {
-				// User is signed out.
-				// ...
-				console.log('no user')
-			}
-		});
-
-	function pagecheck() {
-		//checks current page
-		var currentPage = $(document).find("title").text();
-
-		if (currentPage !== 'Topics') {
-			loadTopicsPage()
-		}
-		else{
-			console.log('you did it')
-		}
-	}
+	
 
 	//......begin homepage login management.......
 
-	//allows user to sign up with an email address
 	function signUpUser() {
 	
 	var email =	$('#registerEmail').val().trim()
 	var password = $('#registerPassword').val().trim()
-
-	sessionStorage.setItem('user', email);
-	sessionStorage.setItem('password', password);
 	
 	console.log(email)	
 	console.log(password)	
@@ -67,73 +30,27 @@ console.log('hello')
 			var errorCode = error.code;
 			var errorMessage = error.message;
 			// ...
-		})
-	
-		
+		});	
+
+		loadTopicsPage()
 	}
 
-	//allows users to sign in with existing account
-	function signInEmail() {
-
-		//grabs values entered into sign modal
-		var email = $('#logInEmail').val().trim()
-		var password = $('#logInPassword').val().trim()
-
-		//verifies if user is an existing user
-		firebase.auth().signInWithEmailAndPassword(email, password).catch(function (error) {
-			// Handle Errors here.
-			var errorCode = error.code;
-			var errorMessage = error.message;
-			// ...
-		})
-
-
-
-	}
-
-	//allows user to log in using a google account
-	function googleLogin() {
-		console.log('google-login')
-
-		var provider = new firebase.auth.GoogleAuthProvider();
-
-		firebase.auth().signInWithPopup(provider).then(function (result) {
-			// This gives you a Google Access Token. You can use it to access the Google API.
-			var token = result.credential.accessToken;
-			// The signed-in user info.
-			user = result.user;
-
-		})
-	}
-
-	//loads topics page once a user is logged in
 	function loadTopicsPage() {
 		window.location.href = 'topics.html'
-	}
-	
-	//trigger for sign up with email function
+
+		$(document).ready(function () {
+
+			//get User data
+		})
+	}	
+
 	$('body').on('click', '#signUpButton', signUpUser)
-
-	//trigger to login with google
-	$('body').on('click', '#googleBtn', googleLogin)
-
-	//trigger for existing user email login
-	$('body').on('click', '#logInButton', signInEmail)
 	
-
-
 	//......begin topics page firebase management.......
 	
 	// demo user
 	var userID = 'productionUser'
 
-	//if a real user is present this captures that user and stores them as the current global user
-	function setUserID() {
-		userID = firebase.auth().currentUser.uid;	
-		console.log(userID)
-	} 
-
-	//this function manages user progess
 	function updateUserProgress() {
 		
 		//creates curent topic variable
@@ -154,41 +71,21 @@ console.log('hello')
 		var ref = database.ref('users/' + userID + '/totalprogress');
 		ref.once('value').then(function (snapshot) {
 
+			console.log(snapshot.child)
 			oldTotal = snapshot.child('total').val();
-
+			console.log(oldTotal)
 			var newTotal = oldTotal + 6.25
-
+			console.log(newTotal)
 			database.ref('users/' + userID + '/totalprogress').update({
 				'total': newTotal
 			})
 		})
 	}
 
-	//updates user current total level
-	var totalCountRef = firebase.database().ref('users/' + userID + '/totalprogress')
-	totalCountRef.on('value', function(snapshot){
-		var currentLevel = snapshot.val()
-		
-		var level = currentLevel.total
-
-		displayCurrentLevel(level)
-	})
-
-	//displays users current level
-	function displayCurrentLevel(level) {
-		if (level > 0 ){
-		$('#counter').html(level)
-		}
-		else {
-			$('#counter').hide()
-		}
-	}
-
 	function getUserHistory() {
 		
 		//id of selected catagory
 		var currentbutton = this.id
-		console.log(currentbutton)
 		
 		//current selected catagory
 		var currentCatagory = currentbutton.slice(0, -8)
@@ -220,8 +117,6 @@ console.log('hello')
 
 	$('body').on('click', '.completeBtn', updateUserProgress)
 	$('body').on('click', '.dropdown-item', getUserHistory)
-	$('body').on('click', '#button5' , setUserID)
-
 
 
 	//......begin topics page management.......
