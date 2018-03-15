@@ -27,13 +27,25 @@ console.log('hello')
 				var uid = user.uid;
 				var providerData = user.providerData;
 				console.log(user)
+				pagecheck()
 				// ...
 			} else {
 				// User is signed out.
 				// ...
+				console.log('no user')
 			}
 		});
-	
+	function pagecheck() {
+		//checks current page
+		var currentPage = $(document).find("title").text();
+
+		if (currentPage !== 'Topics') {
+			loadTopicsPage()
+		}
+		else{
+			console.log('you did it')
+		}
+	}
 
 	//......begin homepage login management.......
 
@@ -53,7 +65,7 @@ console.log('hello')
 			var errorCode = error.code;
 			var errorMessage = error.message;
 			// ...
-		}).then(loadTopicsPage())
+		})
 	
 		
 	}
@@ -66,12 +78,17 @@ console.log('hello')
 		var email = $('#logInEmail').val().trim()
 		var password = $('#logInPassword').val().trim()
 
+		console.log(email)
+		console.log(password)
+
 		firebase.auth().signInWithEmailAndPassword(email, password).catch(function (error) {
 			// Handle Errors here.
 			var errorCode = error.code;
 			var errorMessage = error.message;
 			// ...
-		});
+		})
+
+
 
 	}
 
@@ -92,13 +109,10 @@ console.log('hello')
 			// stores user object in session storage
 			sessionStorage.setItem('user', JSON.stringify(user));
 
-			addUser(user)
 
 
-		}).then( function () {
-			console.log(user)
-		}
-		);
+		}).then(function (){
+			loadTopicsPage() })
 	}
 
 	function loadTopicsPage() {
@@ -110,6 +124,9 @@ console.log('hello')
 
 	//allows users to use google to login/create an account
 	$('body').on('click', '#googleBtn', googleLogin)
+
+	//allows users to use their email on record to login
+	$('body').on('click', '#logInButton', signInEmail)
 	
 
 
