@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Topics</title>
+
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Bootstrap core CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.0/css/mdb.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="assets/css/topicstyle.css">
+
+
+
+
+</head>
+
+<body>
+   <div><h1 class="font">"LIFE ISNT ABOUT SPECTATING, ITS ABOUT PARTICIPATING.."</h1>
+        <h3 id="instructions">Pick A Category To Begin </h3>
+        <div id="counter"></div>
+   </div> 
+
+    
+
+   <div class="row">
+    
+        <div class="col-md-3"></div>
+        <div class="col-md-6" style="padding-top: 5%; padding-bottom: 5%;">
+            <div class="btn-group">
+                <button id="button5" class="btn btn-lg dropdown-toggle fonts" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="width: 610px;">
+                    CATEGORIES
+                </button>
+                <div class="dropdown-menu" id="dropdown" style="width: 610px; ">
+                        <a class="dropdown-item" id="changeDropdown" data-attribute="change" href="#">Fear of Change</a>
+                        <a class="dropdown-item" id="embarrDropdown" data-attribute="embarr" href="#">Fear of Embarrasment</a>
+                        <a class="dropdown-item" id="failDropdown" data-attribute="fail" href="#">Fear of Failure</a>
+                        <a class="dropdown-item" id="rejectDropdown" data-attribute="reject" href="#">Fear of Rejection</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3"></div>
+    </div>
+
+    <div class="container" id="allTopics">
+
+        <div class="row" id="topicsRow">
+
+            <!-- this is where the cards dynamically populate -->
+
+        </div> 
+
+<div class="container d-flex justify-content-center" id="individualTopic">
+    <div class="card">
+        <!-- <div>
+            <h1 class="Header">Current Topic</h1>
+        </div> -->
+        <div class="row" id="popup">
+
+            <div class="col-lg-12">
+                <h1 class="Header">Current Topic</h1>
+                <h3 id="youtubeDIV">Video of the Day:</h3>
+                <div class="youtubeDIV"></div>
+            </div>
+
+            <div class="col-lg-12">
+                <h3 id="quoteDIV">Quote:</h3>
+                <div class="quoteDIV"></div>
+            </div>
+            <div class="col-lg-12">
+                <h3 id="challengeDIV">Challenge:</h3>
+                <div class="challengeDIV"></div>
+            </div>
+            <div id="back" class="col-lg-12">
+                <button class="btn completeBtn" type="submit">Completed</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- firebase -->
+
+<script src="https://www.gstatic.com/firebasejs/4.10.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.10.1/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.10.1/firebase-database.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.10.1/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.10.1/firebase-messaging.js"></script>
+    
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!-- Bootstrap tooltips -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.13.0/umd/popper.min.js"></script>
+<!-- Bootstrap core JavaScript -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<!-- MDB core JavaScript -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.0/js/mdb.min.js"></script>
+<!-- JQuery -->
+<script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous">  
+</script>
+ <script src="assets/javascript/app.js"></script>
+
+</body>
+
+</html>
