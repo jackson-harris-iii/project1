@@ -138,12 +138,19 @@ console.log('hello')
 	//logout feature
 	function logOut() {
 		console.log('buttonhot')
+		firebase.auth().signOut().then(loadHomePage());
 	}
 
 	//loads topics page once a user is logged in
 	function loadTopicsPage() {
 		window.location.href = 'topics.html'
 		setUserID()
+	}
+
+	//loads home page once a user is logged out
+	function loadHomePage() {
+		window.location.href = 'index.html'
+		
 	}
 	
 	//trigger for sign up with email function
