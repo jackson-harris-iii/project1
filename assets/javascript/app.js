@@ -436,7 +436,7 @@ function displaySelectedTopic(selectedTopic) {
 	});
 
 	//quote API
-	var queryURL = "http://quotes.rest/quote/search.json?api_key=_fL6rv9zmtRHXacNHMTESweF&category=";
+	var queryURL = "https://quotes.rest/quote/search.json?api_key=_fL6rv9zmtRHXacNHMTESweF&category=";
 
 	var currentQuoteTopic = topicsObject[selectedTopic].quoteID;
 
